@@ -15,6 +15,9 @@ func main() {
 		if i == 1{
 			projet_red.DisplayInfo(perso)
 			v = false
+		} else if i == 2 {
+			projet_red.AccessInventory(perso)
+			v = false
 		}
 	}
 }

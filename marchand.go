@@ -3,19 +3,18 @@ package projet_red
 import (
 	"bufio"
 	"fmt"
-	"math/rand"
 	"os"
 	"strings"
 )
 
-func openMarchand(perso *perso) {
+func openMarchand(perso character) {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
 		fmt.Println("\n========================================")
 		fmt.Println("        BOUTIQUE DU MARCHAND          ")
 		fmt.Println("========================================")
-		fmt.Printf(" Votre or : %d pièces\n", player.Piece)
+		fmt.Printf(" Votre or : %d pièces\n", perso.Piece)
 		fmt.Println("1. Potion de soin (+50 PV) - 15 Or")
 		fmt.Println("2. Grande Potion (+100 PV) - 30 Or")
 		fmt.Println("3. Potion de poison (-5 PV / s) - 20 Or")
@@ -25,7 +24,7 @@ func openMarchand(perso *perso) {
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 
-		if perso.Inventaire <= 10 {
+		if len(perso.Inventaire) <= 10 {
 			switch input {
 			case "1":
 				if perso.Piece >= 15 {
