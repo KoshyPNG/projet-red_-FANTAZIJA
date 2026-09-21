@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func camp(perso *perso) {
+func camp(perso character) {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
@@ -50,7 +50,7 @@ func camp(perso *perso) {
 					elementASupprimer := "Herbe"
 					index := -1
 
-					for i, v := range fruits {
+					for i, v := range perso.Inventaire {
 						if v == elementASupprimer {
 							index = i
 							break
@@ -58,7 +58,7 @@ func camp(perso *perso) {
 					}
 
 					if index != -1 {
-						fruits = append(fruits[:index], fruits[index+1:]...)
+						perso.Inventaire = append(perso.Inventaire[:index], perso.Inventaire[index+1:]...)
 						perso.Inventaire = append(perso.Inventaire, "Potion de soin")
 						fmt.Println(" Vous avez crée une Potion de soin !")
 					} else {
@@ -70,7 +70,7 @@ func camp(perso *perso) {
 					elementASupprimer := "Champignon"
 					index := -1
 
-					for i, v := range fruits {
+					for i, v := range perso.Inventaire {
 						if v == elementASupprimer {
 							index = i
 							break
@@ -78,7 +78,7 @@ func camp(perso *perso) {
 					}
 
 					if index != -1 {
-						fruits = append(fruits[:index], fruits[index+1:]...)
+						perso.Inventaire = append(perso.Inventaire[:index], perso.Inventaire[index+1:]...)
 						perso.Inventaire = append(perso.Inventaire, "Potion de poison")
 						fmt.Println(" Vous avez crée une Potion de poison !")
 
