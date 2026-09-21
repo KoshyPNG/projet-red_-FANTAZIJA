@@ -17,6 +17,10 @@ func openMarchand(perso *character) {
 		fmt.Printf(" Votre or : %d pièces\n", (*perso).Piece)
 		fmt.Println("1. Potion de soin (+50 PV) - 15 Or")
 		fmt.Println("2. Grande Potion (+100 PV) - 30 Or")
+		fmt.Println("3. Potion de poison (-5 PV / s) - 20 Or")
+		fmt.Println("4. Sacoche à la flèche (+ 10 d'emplacement) - 50 Or")
+		fmt.Println("5. Quitter la boutique")
+		fmt.Print(" Que voulez-vous faire ? (1-5) : ")
 		fmt.Println("3. Potion de poison (-10 par action) - 20 Or")
 		fmt.Println("4. Quitter la boutique")
 		fmt.Print(" Que voulez-vous faire ? (1-4) : ")
@@ -24,7 +28,7 @@ func openMarchand(perso *character) {
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 
-		if len((*perso).Inventaire) <= 10 {
+		if len((*perso).Inventaire) <= (*perso).Inventaire_max  {
 			switch input {
 			case "1":
 				if (*perso).Piece >= 15 {
@@ -54,11 +58,20 @@ func openMarchand(perso *character) {
 				}
 
 			case "4":
+				if (*perso).Piece >= 50 {
+					(*perso).Piece -= 50
+					(*perso).Inventaire_max = 20
+					fmt.Println(" Vous avez acheté une magnifique sacoche !")
+				} else {
+					fmt.Println(" Vous n'avez pas assez d'or !")
+				}
+
+			case "5":
 				fmt.Println("Le marchand vous salue : 'Revenez quand vous voulez l'ami !'")
 				return
 
 			default:
-				fmt.Println("Choix invalide, veuillez choisir entre 1 et 3 !")
+				fmt.Println("Choix invalide, veuillez choisir entre 1 et 5 !")
 			}
 		} else {
 			fmt.Println("Poche pleine, pas possible reviens quand tu te seras vidé !")
