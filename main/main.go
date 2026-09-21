@@ -12,7 +12,7 @@ func main() {
 		var i int
 		fmt.Println("clivk")
 		fmt.Scan(&i)
-		if i == 1{
+		if i == 1 {
 			projet_red.DisplayInfo(perso)
 			v = false
 		} else if i == 2 {
