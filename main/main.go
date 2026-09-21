@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-	perso := projet_red.InitCharacter()
+	me := projet_red.InitCharacter()
+	perso :=  &me
 	fmt.Println("=====================")
 	fmt.Println("Voici une expliquation des commandes :")
 	fmt.Println("=====================")
@@ -16,7 +17,7 @@ func main() {
 	fmt.Println("Acheté des objets au marchand")
 	fmt.Println("Au camp vous pouvez Craft OU vous reposez")
 	fmt.Println("=====================")
-	for projet_red.IsDead(perso) {
+	for projet_red.IsDead(*perso) {
 		fmt.Println("Que vous voulez faire ?")
 		fmt.Println("1 : AVANCEZ ; 2 : PERSONNAGE ; 3 : INVENTAIRE ; 4 : QUITTER")
 		var a int

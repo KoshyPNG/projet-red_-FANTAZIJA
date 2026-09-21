@@ -5,7 +5,7 @@ import (
 	"math/rand"
 )
 
-func Moov(perso character) {
+func Moov(perso *character) {
 	fmt.Println("=====================")
 	fmt.Println("\nVous vous deplacez vers une nouvelle zone...")
 
@@ -18,6 +18,7 @@ func Moov(perso character) {
 		camp(perso)
 	} else if roll <= 60 {
 		fmt.Println("Vous croisez un marchand ambulant qui propose de bonnes affaires.")
+		openMarchand(perso)
 	} else {
 		fmt.Println("La route est calme et sure. Vous avancez tranquillement.")
 	}

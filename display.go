@@ -2,7 +2,7 @@ package projet_red
 
 import "fmt"
 
-func DisplayInfo(perso character) {
+func DisplayInfo(perso *character) {
 	fmt.Println("==========================")
 	fmt.Println("         CHARACTER        ")
 	fmt.Print("===========")

@@ -7,14 +7,14 @@ import (
 	"strings"
 )
 
-func camp(perso character) {
+func camp(perso *character) {
 	reader := bufio.NewReader(os.Stdin)
 	bo := true
 	for {
 		fmt.Println("\n========================================")
 		fmt.Println("               CAMPEMENT                ")
 		fmt.Println("========================================")
-		fmt.Printf(" Votre vie : %d Vie\n", perso.Vie_actuel)
+		fmt.Printf(" Votre vie : %d Vie\n", (*perso).Vie_actuel)
 		fmt.Println("Que voulez vous faire ?")
 		fmt.Println("1. Se reposer (restore votre vie à 100%)")
 		fmt.Println("2. Bricolage ")
@@ -28,7 +28,10 @@ func camp(perso character) {
 
 		case "1":
 			fmt.Println("Un bon dodo !")
-			perso.Vie_actuel = perso.Vie_max
+			(*perso).Vie_actuel += 30
+			if (*perso).Vie_actuel > (*perso).Vie_max {
+				(*perso).Vie_actuel = (*perso).Vie_max
+			}
 			fmt.Println(" Plein d'énergie !")
 			return
 
@@ -41,7 +44,7 @@ func camp(perso character) {
 				fmt.Println("1. Petite potion de soin")
 				fmt.Println("2. Potion de poison ")
 				fmt.Println("3. Retour au menu du camp ")
-				fmt.Print(" Que voulez-vous faire ? (1-3) : ")
+				fmt.Println(" Que voulez-vous faire ? (1-3) : ")
 				fmt.Println("=============================")
 
 				input2, _ := reader.ReadString('\n')
@@ -54,7 +57,7 @@ func camp(perso character) {
 					elementASupprimer := "Herbe"
 					index := -1
 
-					for i, v := range perso.Inventaire {
+					for i, v := range (*perso).Inventaire {
 						if v == elementASupprimer {
 							index = i
 							break
@@ -62,8 +65,8 @@ func camp(perso character) {
 					}
 
 					if index != -1 {
-						perso.Inventaire = append(perso.Inventaire[:index], perso.Inventaire[index+1:]...)
-						perso.Inventaire = append(perso.Inventaire, "Potion de soin")
+						(*perso).Inventaire = append((*perso).Inventaire[:index], (*perso).Inventaire[index+1:]...)
+						(*perso).Inventaire = append((*perso).Inventaire, "Potion de soin")
 						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de soin !")
 					} else {
@@ -76,7 +79,7 @@ func camp(perso character) {
 					elementASupprimer := "Champignon"
 					index := -1
 
-					for i, v := range perso.Inventaire {
+					for i, v := range (*perso).Inventaire {
 						if v == elementASupprimer {
 							index = i
 							break
@@ -84,8 +87,8 @@ func camp(perso character) {
 					}
 
 					if index != -1 {
-						perso.Inventaire = append(perso.Inventaire[:index], perso.Inventaire[index+1:]...)
-						perso.Inventaire = append(perso.Inventaire, "Potion de poison")
+						(*perso).Inventaire = append((*perso).Inventaire[:index], (*perso).Inventaire[index+1:]...)
+						(*perso).Inventaire = append((*perso).Inventaire, "Potion de poison")
 						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de poison !")
 
