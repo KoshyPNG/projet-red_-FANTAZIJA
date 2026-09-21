@@ -11,6 +11,9 @@ type character struct{
 	Inventaire []string
 	Action []string
 	Res bool
+	poison bool
+	combat bool
+	tpois int
 }
 
 func corrected(i string) string {
@@ -41,12 +44,15 @@ func InitCharacter() character {
 	perso.Vie_max = 100
 	perso.Level = 1.0
 	for i := 0; i <3; i++{
-		perso.Inventaire = append(perso.Inventaire , "potion")
+		perso.Inventaire = append(perso.Inventaire , "Potion de soin")
 	}
 	perso.Piece = 20
 	perso.Action = append(perso.Action , "Coup d'épée")
 	perso.Action = append(perso.Action , "Cri de guerre")
 	perso.Action = append(perso.Action , "Bloquer")
 	perso.Res = true
+	perso.poison = false
+	perso.combat = false
+	perso.tpois = 0
 	return perso
 }

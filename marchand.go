@@ -38,8 +38,8 @@ func openMarchand(perso *character) {
 			case "2":
 				if(*perso).Piece >= 30 {
 					(*perso).Piece -= 30
-					(*perso).Inventaire = append((*perso).Inventaire, "Grande Potion")
-					fmt.Println(" Vous avez acheté une Grande Potion !")
+					(*perso).Inventaire = append((*perso).Inventaire, "Grande Potion de soin")
+					fmt.Println(" Vous avez acheté une Grande Potion de soin !")
 				} else {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}
