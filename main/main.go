@@ -24,7 +24,7 @@ func main() {
 		fmt.Scan(&a)
 		switch a {
 		case 1 :
-			projet_red.Moov()
+			projet_red.Moov(perso)
 		case 2 :
 			projet_red.DisplayInfo(perso)
 		case 3 :

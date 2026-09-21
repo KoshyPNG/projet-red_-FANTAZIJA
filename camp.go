@@ -9,7 +9,7 @@ import (
 
 func camp(perso character) {
 	reader := bufio.NewReader(os.Stdin)
-
+	bo := true
 	for {
 		fmt.Println("\n========================================")
 		fmt.Println("               CAMPEMENT                ")
@@ -33,7 +33,7 @@ func camp(perso character) {
 
 		case "2":
 
-			for {
+			for bo {
 				fmt.Println("Que voulez vous fabriquer ?")
 				fmt.Println("1. Petite potion de soin")
 				fmt.Println("2. Potion de poison ")
@@ -88,7 +88,7 @@ func camp(perso character) {
 
 				case "3":
 
-					break
+					bo  = false
 
 				default:
 					fmt.Println("Choix invalide, veuillez choisir entre 1 et 3 !")
