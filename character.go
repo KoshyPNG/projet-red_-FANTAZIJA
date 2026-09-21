@@ -11,6 +11,7 @@ type character struct{
 	Inventaire []string
 	Action []string
 	Res bool
+	Inventaire_max int
 }
 
 func corrected(i string) string {
@@ -43,6 +44,7 @@ func InitCharacter() character {
 	for i := 0; i <3; i++{
 		perso.Inventaire = append(perso.Inventaire , "potion")
 	}
+	perso.Inventaire_max = 10
 	perso.Piece = 20
 	perso.Action = append(perso.Action , "Coup d'épée")
 	perso.Action = append(perso.Action , "Cri de guerre")
