@@ -10,6 +10,9 @@ func DisplayInfo(perso *character) {
 	fmt.Print("===========\n")
 	fmt.Print("Vie : ",perso.Vie_actuel)
 	fmt.Println("/",perso.Vie_max)
+	if (*perso).poison {
+		fmt.Println("Vous ètes empoisonné")
+	}
 	fmt.Println(perso.Piece,"pièce d'or")
 	fmt.Println("==========================")
 	var b float64

@@ -21,6 +21,9 @@ func openMarchand(perso *character) {
 		fmt.Println("4. Sacoche à la flèche (+ 10 d'emplacement) - 50 Or")
 		fmt.Println("5. Quitter la boutique")
 		fmt.Print(" Que voulez-vous faire ? (1-5) : ")
+		fmt.Println("3. Potion de poison (-10 par action) - 20 Or")
+		fmt.Println("4. Quitter la boutique")
+		fmt.Print(" Que voulez-vous faire ? (1-4) : ")
 
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
@@ -39,8 +42,8 @@ func openMarchand(perso *character) {
 			case "2":
 				if(*perso).Piece >= 30 {
 					(*perso).Piece -= 30
-					(*perso).Inventaire = append((*perso).Inventaire, "Grande Potion")
-					fmt.Println(" Vous avez acheté une Grande Potion !")
+					(*perso).Inventaire = append((*perso).Inventaire, "Grande Potion de soin")
+					fmt.Println(" Vous avez acheté une Grande Potion de soin !")
 				} else {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}

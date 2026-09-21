@@ -8,7 +8,15 @@ import (
 func Moov(perso *character) {
 	fmt.Println("=====================")
 	fmt.Println("\nVous vous deplacez vers une nouvelle zone...")
-
+	if (*perso).poison{
+		fmt.Println("Vous vous sentez malade")
+		(*perso).tpois--
+		if (*perso).tpois == 0 {
+			(*perso).poison = false
+		}
+		(*perso).Vie_actuel -= 10
+	}
+	
 	roll := rand.Intn(100) + 1
 
 	if roll <= 20 {

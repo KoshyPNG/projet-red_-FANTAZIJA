@@ -28,7 +28,7 @@ func camp(perso *character) {
 
 		case "1":
 			fmt.Println("Un bon dodo !")
-			(*perso).Vie_actuel += 30
+			(*perso).Vie_actuel += 20
 			if (*perso).Vie_actuel > (*perso).Vie_max {
 				(*perso).Vie_actuel = (*perso).Vie_max
 			}
