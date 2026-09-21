@@ -17,7 +17,6 @@ func main() {
 	fmt.Println("Au camp vous pouvez Craft OU vous reposez")
 	fmt.Println("=====================")
 	for projet_red.IsDead(perso) {
-		fmt.Println("=====================")
 		fmt.Println("Que vous voulez faire ?")
 		fmt.Println("1 : AVANCEZ ; 2 : PERSONNAGE ; 3 : INVENTAIRE ; 4 : QUITTER")
 		var a int
@@ -38,7 +37,6 @@ func main() {
 				perso.Res = false
 			}
 		}
-		fmt.Println("=====================")
 	}
 	fmt.Println("=====================")
 	fmt.Println("Votre aventure se termine")

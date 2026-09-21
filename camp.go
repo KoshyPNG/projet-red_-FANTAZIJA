@@ -30,15 +30,19 @@ func camp(perso character) {
 			fmt.Println("Un bon dodo !")
 			perso.Vie_actuel = perso.Vie_max
 			fmt.Println(" Plein d'énergie !")
+			return
 
 		case "2":
 
 			for bo {
+				fmt.Println("=============================")
 				fmt.Println("Que voulez vous fabriquer ?")
+				fmt.Println("=============================")
 				fmt.Println("1. Petite potion de soin")
 				fmt.Println("2. Potion de poison ")
 				fmt.Println("3. Retour au menu du camp ")
 				fmt.Print(" Que voulez-vous faire ? (1-3) : ")
+				fmt.Println("=============================")
 
 				input2, _ := reader.ReadString('\n')
 				input2 = strings.TrimSpace(input2)
@@ -60,8 +64,10 @@ func camp(perso character) {
 					if index != -1 {
 						perso.Inventaire = append(perso.Inventaire[:index], perso.Inventaire[index+1:]...)
 						perso.Inventaire = append(perso.Inventaire, "Potion de soin")
+						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de soin !")
 					} else {
+						fmt.Println("=============================")
 						fmt.Println("Pas d'herbe, pas de potion ...")
 					}
 
@@ -80,9 +86,11 @@ func camp(perso character) {
 					if index != -1 {
 						perso.Inventaire = append(perso.Inventaire[:index], perso.Inventaire[index+1:]...)
 						perso.Inventaire = append(perso.Inventaire, "Potion de poison")
+						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de poison !")
 
 					} else {
+						fmt.Println("=============================")
 						fmt.Println("Pas de champignon, pas de poison ...")
 					}
 
@@ -91,15 +99,18 @@ func camp(perso character) {
 					bo  = false
 
 				default:
+					fmt.Println("=============================")
 					fmt.Println("Choix invalide, veuillez choisir entre 1 et 3 !")
 				}
 			}
 
-		case "4":
+		case "3":
+			fmt.Println("=============================")
 			fmt.Println("Il est temps de se remmetre en route!'")
 			return
 
 		default:
+			fmt.Println("=============================")
 			fmt.Println("Choix invalide, veuillez choisir entre 1 et 3 !")
 		}
 	}
