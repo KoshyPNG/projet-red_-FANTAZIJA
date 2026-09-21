@@ -35,23 +35,48 @@ func corrected(i string) string {
 	return new
 }
 
+func creation(perso *character) {
+	var i int
+	fmt.Println("===========================")
+	fmt.Println("Quellle est votre classe ?")
+	fmt.Println("1 : CHEVALIER ;  2 : ARCHER ; 3 : MAGICIEN(pas fini)")
+	fmt.Scan(&i)
+	switch i {
+	case 1 :
+		perso.Vie_actuel = 100
+		perso.Vie_max = 100
+		perso.Action = append(perso.Action , "Coup d'épée")
+		perso.Action = append(perso.Action , "Cri de guerre")
+		perso.Action = append(perso.Action , "Bloquer")
+	case 2 :
+		perso.Vie_actuel = 80
+		perso.Vie_max = 80
+		perso.Action = append(perso.Action , "Flèche de fer")
+		perso.Action = append(perso.Action , "Flèche de poison")
+		perso.Action = append(perso.Action , "Dodge")
+	case 3 :
+		perso.Vie_actuel = 60
+		perso.Vie_max = 60
+		perso.Action = append(perso.Action , "Aiguille de mana")
+		perso.Action = append(perso.Action , "Boule de feu")
+		perso.Action = append(perso.Action , "Bouclier magique")
+	}
+}
+
 func InitCharacter() character {
 	var perso character
 	var i string
+	p := &perso
 	fmt.Println("Quellle est votre nom?")
 	fmt.Scan(&i)
 	perso.Nom = corrected(i)
-	perso.Vie_actuel = 100
-	perso.Vie_max = 100
+	creation(p)
 	perso.Level = 1.0
 	for i := 0; i <3; i++{
 		perso.Inventaire = append(perso.Inventaire , "Potion de soin")
 	}
 	perso.Inventaire_max = 10
 	perso.Piece = 20
-	perso.Action = append(perso.Action , "Coup d'épée")
-	perso.Action = append(perso.Action , "Cri de guerre")
-	perso.Action = append(perso.Action , "Bloquer")
 	perso.Res = true
 	perso.poison = false
 	perso.combat = false
