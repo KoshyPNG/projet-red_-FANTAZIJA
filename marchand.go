@@ -17,13 +17,11 @@ func openMarchand(perso *character) {
 		fmt.Printf(" Votre or : %d pièces\n", (*perso).Piece)
 		fmt.Println("1. Potion de soin (+50 PV) - 15 Or")
 		fmt.Println("2. Grande Potion (+100 PV) - 30 Or")
-		fmt.Println("3. Potion de poison (-5 PV / s) - 20 Or")
+		fmt.Println("3. Potion de poison (-10 par action) - 20 Or")
 		fmt.Println("4. Sacoche à la flèche (+ 10 d'emplacement) - 50 Or")
 		fmt.Println("5. Quitter la boutique")
 		fmt.Print(" Que voulez-vous faire ? (1-5) : ")
-		fmt.Println("3. Potion de poison (-10 par action) - 20 Or")
-		fmt.Println("4. Quitter la boutique")
-		fmt.Print(" Que voulez-vous faire ? (1-4) : ")
+		
 
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
