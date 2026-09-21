@@ -15,6 +15,6 @@ func AccessInventory(perso character) {
 	fmt.Println("Ecrire le numero de l'objet pour utilisé ou 0 pour rien faire.")
 	fmt.Scan(&a)
 	if a > 0 && a <= len(perso.Inventaire) {
-		fmt.Println("faire fonction use_object")
+		Use_object(a,perso)
 	}
 }
