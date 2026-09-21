@@ -5,7 +5,7 @@ import (
 	"math/rand"
 )
 
-func moov() {
+func Moov() {
 	fmt.Println("\n Vous vous deplacez vers une nouvelle zone...")
 
 	roll := rand.Intn(100) + 1

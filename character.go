@@ -10,6 +10,7 @@ type character struct{
 	Piece int
 	Inventaire []string
 	Action []string
+	Res bool
 }
 
 func corrected(i string) string {
@@ -46,5 +47,6 @@ func InitCharacter() character {
 	perso.Action = append(perso.Action , "Coup d'épée")
 	perso.Action = append(perso.Action , "Cri de guerre")
 	perso.Action = append(perso.Action , "Bloquer")
+	perso.Res = true
 	return perso
 }
