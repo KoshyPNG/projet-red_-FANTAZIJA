@@ -17,6 +17,8 @@ type character struct {
 	Tpois int
 	Equipement [3](*equip)
 	NbAchatSacoche int
+	BuffA float64
+	Buff float64
 }
 
 func corrected(i string) string {
@@ -100,5 +102,7 @@ func InitCharacter() character {
 	perso.Combat = false
 	perso.Tpois = 0
 	perso.NbAchatSacoche  = 0
+	perso.BuffA = 1
+	perso.Buff = 1
 	return perso
 }
