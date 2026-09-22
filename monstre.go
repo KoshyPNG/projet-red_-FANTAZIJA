@@ -41,7 +41,7 @@ func monsterMaxime() Monster {
 		Nom:        "Solar",
 		Vie_actuel: 200,
 		Vie_max:    200,
-		Loot:       []string{"PP7 silencieux"},
+		Loot:       []string{"PP7 silencieux","RedBull"},
 	}
 	for _, nom := range []string{"Lancer de RedBull", "Morsure de loup", "Traque empoisonné"} {
 		attack := InitAttack(nom)
