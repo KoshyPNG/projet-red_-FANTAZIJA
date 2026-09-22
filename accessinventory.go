@@ -10,7 +10,7 @@ func AccessInventory(perso *character) {
 		fmt.Print(i+1, ": ")
 		fmt.Println(a)
 	}
-	var a int 
+	var a int
 	fmt.Println("==========================")
 	fmt.Println("Ecrire le numero de l'objet pour utilisé ou 0 pour rien faire.")
 	fmt.Scan(&a)

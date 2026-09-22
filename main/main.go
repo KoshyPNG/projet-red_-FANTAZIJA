@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+
 	"projet_red"
 )
 
 func main() {
 	me := projet_red.InitCharacter()
-	perso :=  &me
+	perso := &me
 	fmt.Println("=====================")
 	fmt.Println("Voici une expliquation des commandes :")
 	fmt.Println("=====================")
@@ -23,13 +24,13 @@ func main() {
 		var a int
 		fmt.Scan(&a)
 		switch a {
-		case 1 :
+		case 1:
 			projet_red.Moov(perso)
-		case 2 :
+		case 2:
 			projet_red.DisplayInfo(perso)
-		case 3 :
+		case 3:
 			projet_red.AccessInventory(perso)
-		case 4 :
+		case 4:
 			var b string
 			fmt.Println("OUI pour quittez ou NON pour annulé")
 			fmt.Scan(&b)

@@ -2,25 +2,25 @@ package projet_red
 
 import "fmt"
 
-type character struct{
-	Nom string
-	Vie_actuel int
-	Vie_max int
-	Level float64
-	Piece int
-	Inventaire []string
-	Action []string
-	Res bool
+type character struct {
+	Nom            string
+	Vie_actuel     int
+	Vie_max        int
+	Level          float64
+	Piece          int
+	Inventaire     []string
+	Action         []string
+	Res            bool
 	Inventaire_max int
-	poison bool
-	combat bool
-	tpois int
+	poison         bool
+	combat         bool
+	tpois          int
 }
 
 func corrected(i string) string {
 	var new string
 	for a, val := range i {
-		if a == 0{
+		if a == 0 {
 			if val >= 'a' && val <= 'z' {
 				new = new + string(val-32)
 			} else {
@@ -72,8 +72,8 @@ func InitCharacter() character {
 	perso.Nom = corrected(i)
 	creation(p)
 	perso.Level = 1.0
-	for i := 0; i <3; i++{
-		perso.Inventaire = append(perso.Inventaire , "Potion de soin")
+	for i := 0; i < 3; i++ {
+		perso.Inventaire = append(perso.Inventaire, "Potion de soin")
 	}
 	perso.Inventaire_max = 10
 	perso.Piece = 20
