@@ -9,7 +9,7 @@ type character struct {
 	Level          float64
 	Piece          int
 	Inventaire     []string
-	Action         []string
+	Action         [](*attack)
 	Res            bool
 	Inventaire_max int
 	Poison bool
@@ -46,23 +46,29 @@ func creation(perso *character) {
 	case 1 :
 		perso.Vie_actuel = 100
 		perso.Vie_max = 100
-		perso.Action = append(perso.Action , "Coup d'épée")
-		perso.Action = append(perso.Action , "Cri de guerre")
-		perso.Action = append(perso.Action , "Bloquer")
-
+		tab := []string{"Coup d'épée","Cri de guerre","Bloquer"}
+		for _,val := range tab {
+			c := InitAttack(val)
+			perso.Action = append(perso.Action , &c)
+		}
+	
 	case 2 :
 		perso.Vie_actuel = 80
 		perso.Vie_max = 80
-		perso.Action = append(perso.Action , "Flèche de fer")
-		perso.Action = append(perso.Action , "Flèche de poison")
-		perso.Action = append(perso.Action , "Dodge")
+		tab := []string{"Flèche de fer","Flèche de poison","Dodge"}
+		for _,val := range tab {
+			c := InitAttack(val)
+			perso.Action = append(perso.Action , &c)
+		}
 
 	case 3 :
 		perso.Vie_actuel = 60
 		perso.Vie_max = 60
-		perso.Action = append(perso.Action , "Aiguille de mana")
-		perso.Action = append(perso.Action , "Boule de feu")
-		perso.Action = append(perso.Action , "Bouclier magique")
+		tab := []string{ "Aiguille de mana", "Boule de feu","Bouclier magique"}
+		for _,val := range tab {
+			c := InitAttack(val)
+			perso.Action = append(perso.Action , &c)
+		}
 
 	}
 }
