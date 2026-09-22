@@ -43,9 +43,9 @@ func camp(perso *character) {
 				fmt.Println("=============================")
 				fmt.Println("1. Petite potion de soin")
 				fmt.Println("2. Potion de poison ")
-				fmt.Println("3. Casquette Gucci fraise ")
-				fmt.Println("4. Fourure Canada Goose ")
-				fmt.Println("5. Dior B30 ")
+				fmt.Println("3. Chapeau de l'aventurier ")
+				fmt.Println("4. Tunique de l'aventurie ")
+				fmt.Println("5. Bottes de l'aventurier ")
 				fmt.Println("6. Retour au menu du camp ")
 
 				fmt.Println(" Que voulez-vous faire ? (1-3) : ")
@@ -70,7 +70,7 @@ func camp(perso *character) {
 					}
 
 					if index != -1 {
-						remoov(index)
+						remoov(index, perso)
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de soin !")
@@ -93,7 +93,7 @@ func camp(perso *character) {
 					}
 
 					if index != -1 {
-						remoov(index)
+						remoov(index, perso)
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de poison !")
@@ -105,32 +105,32 @@ func camp(perso *character) {
 
 				case "3":
 
-					objet := "Casquette Gucci fraise"
+					objet := "Chapeau de l'aventurier"
 					elementASupprimer := "Tissus"
 					elementASupprimer2 := "Corde"
 					index1 := -1
 					index2 := -1
 
 					for i, v := range (*perso).Inventaire {
-						if v == element1 && index1 == -1 {
+						if v ==elementASupprimer && index1 == -1 {
 							index1 = i
-						} else if v == element2 && index2 == -1 {
+						} else if v ==elementASupprimer2 && index2 == -1 {
 							index2 = i
 						}
 					}
 					if index1 != -1 && index2 != -1 {
 						if index1 > index2 {
-							remoov(index1)
-							remoov(index2)
+							remoov(index1, perso)
+							remoov(index2, perso)
 						} else {
-							remoov(index2)
-							remoov(index1)
+							remoov(index2, perso)
+							remoov(index1, perso)
 						}
 
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 
 						fmt.Println("=============================")
-						fmt.Println(" Vous avez crée une Casquette Gucci fraise !")
+						fmt.Println(" Vous avez crée un Chapeau de l'aventurier !")
 					} else {
 						fmt.Println("=============================")
 						fmt.Println("Pas assez de matières ...")
@@ -138,32 +138,32 @@ func camp(perso *character) {
 
 				case "4":
 
-					objet := "Fourure Canada Goose"
+					objet := "Tunique de l'aventurie"
 					elementASupprimer := "Fourrure de loup"
 					elementASupprimer2 := "Corde"
 					index1 := -1
 					index2 := -1
 
 					for i, v := range (*perso).Inventaire {
-						if v == element1 && index1 == -1 {
+						if v == elementASupprimer && index1 == -1 {
 							index1 = i
-						} else if v == element2 && index2 == -1 {
+						} else if v == elementASupprimer2 && index2 == -1 {
 							index2 = i
 						}
 					}
 					if index1 != -1 && index2 != -1 {
 						if index1 > index2 {
-							remoov(index1)
-							remoov(index2)
+							remoov(index1, perso)
+							remoov(index2, perso)
 						} else {
-							remoov(index2)
-							remoov(index1)
+							remoov(index2, perso)
+							remoov(index1, perso)
 						}
 
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 
 						fmt.Println("=============================")
-						fmt.Println(" Vous avez crée un Fourure Canada Goose !")
+						fmt.Println(" Vous avez crée une Tunique de l'aventurie !")
 					} else {
 						fmt.Println("=============================")
 						fmt.Println("Pas assez de matières ...")
@@ -171,32 +171,32 @@ func camp(perso *character) {
 
 				case "5":
 
-					objet := "Dior B30"
+					objet := "Bottes de l'aventurier"
 					elementASupprimer := "Tissus"
 					elementASupprimer2 := "Caoutchouc"
 					index1 := -1
 					index2 := -1
 
 					for i, v := range (*perso).Inventaire {
-						if v == element1 && index1 == -1 {
+						if v == elementASupprimer && index1 == -1 {
 							index1 = i
-						} else if v == element2 && index2 == -1 {
+						} else if v == elementASupprimer2 && index2 == -1 {
 							index2 = i
 						}
 					}
 					if index1 != -1 && index2 != -1 {
 						if index1 > index2 {
-							remoov(index1)
-							remoov(index2)
+							remoov(index1, perso)
+							remoov(index2, perso)
 						} else {
-							remoov(index2)
-							remoov(index1)
+							remoov(index2, perso)
+							remoov(index1,perso)
 						}
 
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 
 						fmt.Println("=============================")
-						fmt.Println(" Vous avez crée une paire de Dior B30 !")
+						fmt.Println(" Vous avez crée une paire de Bottes de l'aventurier !")
 					} else {
 						fmt.Println("=============================")
 						fmt.Println("Pas assez de matières ...")

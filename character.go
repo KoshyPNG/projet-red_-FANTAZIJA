@@ -12,10 +12,10 @@ type character struct {
 	Action         []string
 	Res            bool
 	Inventaire_max int
-	NbAchatSacoche int
-	poison         bool
-	combat         bool
-	tpois          int
+	Poison bool
+	Combat bool
+	Tpois int
+	Equipement [3](*equip)
 }
 
 func corrected(i string) string {
@@ -46,21 +46,24 @@ func creation(perso *character) {
 	case 1:
 		perso.Vie_actuel = 100
 		perso.Vie_max = 100
-		perso.Action = append(perso.Action, "Coup d'épée")
-		perso.Action = append(perso.Action, "Cri de guerre")
-		perso.Action = append(perso.Action, "Bloquer")
-	case 2:
+		perso.Action = append(perso.Action , "Coup d'épée")
+		perso.Action = append(perso.Action , "Cri de guerre")
+		perso.Action = append(perso.Action , "Bloquer")
+
+	case 2 :
 		perso.Vie_actuel = 80
 		perso.Vie_max = 80
-		perso.Action = append(perso.Action, "Flèche de fer")
-		perso.Action = append(perso.Action, "Flèche de poison")
-		perso.Action = append(perso.Action, "Dodge")
-	case 3:
+		perso.Action = append(perso.Action , "Flèche de fer")
+		perso.Action = append(perso.Action , "Flèche de poison")
+		perso.Action = append(perso.Action , "Dodge")
+
+	case 3 :
 		perso.Vie_actuel = 60
 		perso.Vie_max = 60
-		perso.Action = append(perso.Action, "Aiguille de mana")
-		perso.Action = append(perso.Action, "Boule de feu")
-		perso.Action = append(perso.Action, "Bouclier magique")
+		perso.Action = append(perso.Action , "Aiguille de mana")
+		perso.Action = append(perso.Action , "Boule de feu")
+		perso.Action = append(perso.Action , "Bouclier magique")
+
 	}
 }
 
@@ -76,11 +79,18 @@ func InitCharacter() character {
 	for i := 0; i < 3; i++ {
 		perso.Inventaire = append(perso.Inventaire, "Potion de soin")
 	}
+	tab := []string{"Rien","Rien","Rien"}
+	var a equip
+	for i, val := range tab {
+		a = InitEquip(val)
+		perso.Equipement[i] = &a
+
+	}
 	perso.Inventaire_max = 10
-	perso.Piece = 20
+	perso.Piece = 50
 	perso.Res = true
-	perso.poison = false
-	perso.combat = false
-	perso.tpois = 0
+	perso.Poison = false
+	perso.Combat = false
+	perso.Tpois = 0
 	return perso
 }

@@ -17,8 +17,8 @@ func main() {
 	fmt.Println("Combattez pour votre vie en combat !!!!!!")
 	fmt.Println("Acheté des objets au marchand")
 	fmt.Println("Au camp vous pouvez Craft OU vous reposez")
-	fmt.Println("=====================")
 	for projet_red.IsDead(*perso) {
+		fmt.Println("=====================")
 		fmt.Println("Que vous voulez faire ?")
 		fmt.Println("1 : AVANCEZ ; 2 : PERSONNAGE ; 3 : INVENTAIRE ; 4 : QUITTER")
 		var a int
@@ -35,8 +35,8 @@ func main() {
 			fmt.Println("OUI pour quittez ou NON pour annulé")
 			fmt.Scan(&b)
 			if b == "OUI" {
-				perso.Vie_actuel = 0
-				perso.Res = false
+				(*perso).Vie_actuel = 0
+				(*perso).Res = false
 			}
 		}
 	}

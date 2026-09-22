@@ -12,6 +12,8 @@ func AccessInventory(perso *character) {
 	}
 	var a int
 	fmt.Println("==========================")
+	fmt.Println("Inventaire MAX : ",(*perso).Inventaire_max)
+	fmt.Println("==========================")
 	fmt.Println("Ecrire le numero de l'objet pour utilisé ou 0 pour rien faire.")
 	fmt.Scan(&a)
 	if a > 0 && a <= len((*perso).Inventaire) {
