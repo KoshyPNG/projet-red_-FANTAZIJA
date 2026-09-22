@@ -43,7 +43,11 @@ func camp(perso *character) {
 				fmt.Println("=============================")
 				fmt.Println("1. Petite potion de soin")
 				fmt.Println("2. Potion de poison ")
-				fmt.Println("3. Retour au menu du camp ")
+				fmt.Println("3. Casquette Gucci fraise ")
+				fmt.Println("4. Fourure Canada Goose ")
+				fmt.Println("5. Dior B30 ")
+				fmt.Println("6. Retour au menu du camp ")
+
 				fmt.Println(" Que voulez-vous faire ? (1-3) : ")
 				fmt.Println("=============================")
 
@@ -54,6 +58,7 @@ func camp(perso *character) {
 
 				case "1":
 
+					objet := "Potion de soin"
 					elementASupprimer := "Herbe"
 					index := -1
 
@@ -65,8 +70,8 @@ func camp(perso *character) {
 					}
 
 					if index != -1 {
-						(*perso).Inventaire = append((*perso).Inventaire[:index], (*perso).Inventaire[index+1:]...)
-						(*perso).Inventaire = append((*perso).Inventaire, "Potion de soin")
+						remoov(index)
+						(*perso).Inventaire = append((*perso).Inventaire, objet)
 						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de soin !")
 					} else {
@@ -76,6 +81,7 @@ func camp(perso *character) {
 
 				case "2":
 
+					objet := "Potion de poison"
 					elementASupprimer := "Champignon"
 					index := -1
 
@@ -87,8 +93,8 @@ func camp(perso *character) {
 					}
 
 					if index != -1 {
-						(*perso).Inventaire = append((*perso).Inventaire[:index], (*perso).Inventaire[index+1:]...)
-						(*perso).Inventaire = append((*perso).Inventaire, "Potion de poison")
+						remoov(index)
+						(*perso).Inventaire = append((*perso).Inventaire, objet)
 						fmt.Println("=============================")
 						fmt.Println(" Vous avez crée une Potion de poison !")
 
@@ -99,11 +105,110 @@ func camp(perso *character) {
 
 				case "3":
 
-					bo  = false
+					objet := "Casquette Gucci fraise"
+					elementASupprimer := "Tissus"
+					elementASupprimer2 := "Corde"
+					index1 := -1
+					index2 := -1
+
+					for i, v := range (*perso).Inventaire {
+						if v == element1 && index1 == -1 {
+							index1 = i
+						} else if v == element2 && index2 == -1 {
+							index2 = i
+						}
+					}
+					if index1 != -1 && index2 != -1 {
+						if index1 > index2 {
+							remoov(index1)
+							remoov(index2)
+						} else {
+							remoov(index2)
+							remoov(index1)
+						}
+
+						(*perso).Inventaire = append((*perso).Inventaire, objet)
+
+						fmt.Println("=============================")
+						fmt.Println(" Vous avez crée une Casquette Gucci fraise !")
+					} else {
+						fmt.Println("=============================")
+						fmt.Println("Pas assez de matières ...")
+					}
+
+				case "4":
+
+					objet := "Fourure Canada Goose"
+					elementASupprimer := "Fourrure de loup"
+					elementASupprimer2 := "Corde"
+					index1 := -1
+					index2 := -1
+
+					for i, v := range (*perso).Inventaire {
+						if v == element1 && index1 == -1 {
+							index1 = i
+						} else if v == element2 && index2 == -1 {
+							index2 = i
+						}
+					}
+					if index1 != -1 && index2 != -1 {
+						if index1 > index2 {
+							remoov(index1)
+							remoov(index2)
+						} else {
+							remoov(index2)
+							remoov(index1)
+						}
+
+						(*perso).Inventaire = append((*perso).Inventaire, objet)
+
+						fmt.Println("=============================")
+						fmt.Println(" Vous avez crée un Fourure Canada Goose !")
+					} else {
+						fmt.Println("=============================")
+						fmt.Println("Pas assez de matières ...")
+					}
+
+				case "5":
+
+					objet := "Dior B30"
+					elementASupprimer := "Tissus"
+					elementASupprimer2 := "Caoutchouc"
+					index1 := -1
+					index2 := -1
+
+					for i, v := range (*perso).Inventaire {
+						if v == element1 && index1 == -1 {
+							index1 = i
+						} else if v == element2 && index2 == -1 {
+							index2 = i
+						}
+					}
+					if index1 != -1 && index2 != -1 {
+						if index1 > index2 {
+							remoov(index1)
+							remoov(index2)
+						} else {
+							remoov(index2)
+							remoov(index1)
+						}
+
+						(*perso).Inventaire = append((*perso).Inventaire, objet)
+
+						fmt.Println("=============================")
+						fmt.Println(" Vous avez crée une paire de Dior B30 !")
+					} else {
+						fmt.Println("=============================")
+						fmt.Println("Pas assez de matières ...")
+					}
+
+				case "6":
+
+					bo = false
 
 				default:
 					fmt.Println("=============================")
-					fmt.Println("Choix invalide, veuillez choisir entre 1 et 3 !")
+					fmt.Println("Choix invalide, veuillez choisir entre 1 et 6 !")
 				}
 			}
 

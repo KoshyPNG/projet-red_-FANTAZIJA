@@ -17,18 +17,15 @@ func openMarchand(perso *character) {
 		fmt.Printf(" Votre or : %d pièces\n", (*perso).Piece)
 		fmt.Println("1. Potion de soin (+50 PV) - 15 Or")
 		fmt.Println("2. Grande Potion (+100 PV) - 30 Or")
-		fmt.Println("3. Potion de poison (-5 PV / s) - 20 Or")
+		fmt.Println("3. Potion de poison (-10 par action) - 20 Or")
 		fmt.Println("4. Sacoche à la flèche (+ 10 d'emplacement) - 50 Or")
 		fmt.Println("5. Quitter la boutique")
 		fmt.Print(" Que voulez-vous faire ? (1-5) : ")
-		fmt.Println("3. Potion de poison (-10 par action) - 20 Or")
-		fmt.Println("4. Quitter la boutique")
-		fmt.Print(" Que voulez-vous faire ? (1-4) : ")
 
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 
-		if len((*perso).Inventaire) <= (*perso).Inventaire_max  {
+		if len((*perso).Inventaire) <= (*perso).Inventaire_max {
 			switch input {
 			case "1":
 				if (*perso).Piece >= 15 {
@@ -40,7 +37,7 @@ func openMarchand(perso *character) {
 				}
 
 			case "2":
-				if(*perso).Piece >= 30 {
+				if (*perso).Piece >= 30 {
 					(*perso).Piece -= 30
 					(*perso).Inventaire = append((*perso).Inventaire, "Grande Potion de soin")
 					fmt.Println(" Vous avez acheté une Grande Potion de soin !")
@@ -61,7 +58,7 @@ func openMarchand(perso *character) {
 				if (*perso).Piece >= 50 {
 					(*perso).Piece -= 50
 					(*perso).Inventaire_max = 20
-					fmt.Println(" Vous avez acheté une magnifique sacoche !")
+					fmt.Println(" Les choses simples... une magnifique sacoche !")
 				} else {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}

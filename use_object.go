@@ -5,10 +5,10 @@ import "fmt"
 func remove(a int, perso *character) {
 	var new []string
 	for i, val := range perso.Inventaire {
-		if i == a{
+		if i == a {
 			continue
 		} else {
-			new = append(new,val)
+			new = append(new, val)
 		}
 	}
 	(*perso).Inventaire = new
@@ -19,7 +19,7 @@ func PotH(perso *character) {
 	if perso.Vie_actuel > perso.Vie_max {
 		perso.Vie_actuel = perso.Vie_max
 	}
-	fmt.Print("Vous avez maintenant ",perso.Vie_actuel)
+	fmt.Print("Vous avez maintenant ", perso.Vie_actuel)
 	fmt.Println(" PV")
 }
 
@@ -28,7 +28,7 @@ func PotGH(perso *character) {
 	if perso.Vie_actuel > perso.Vie_max {
 		perso.Vie_actuel = perso.Vie_max
 	}
-	fmt.Print("Vous avez maintenant ",perso.Vie_actuel)
+	fmt.Print("Vous avez maintenant ", perso.Vie_actuel)
 	fmt.Println(" PV")
 }
 
@@ -45,10 +45,10 @@ func Use_object(a int, perso *character) {
 	a--
 	objet := (*perso).Inventaire[a]
 	switch objet {
-	case "Potion de soin" :
+	case "Potion de soin":
 		PotH(perso)
 
-	case "Grande Potion de soin" :
+	case "Grande Potion de soin":
 		PotGH(perso)
 	}
 	remove(a, perso)
