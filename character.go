@@ -12,6 +12,7 @@ type character struct {
 	Action         []string
 	Res            bool
 	Inventaire_max int
+	NbAchatSacoche int
 	poison         bool
 	combat         bool
 	tpois          int
@@ -42,24 +43,24 @@ func creation(perso *character) {
 	fmt.Println("1 : CHEVALIER ;  2 : ARCHER ; 3 : MAGICIEN(pas fini)")
 	fmt.Scan(&i)
 	switch i {
-	case 1 :
+	case 1:
 		perso.Vie_actuel = 100
 		perso.Vie_max = 100
-		perso.Action = append(perso.Action , "Coup d'épée")
-		perso.Action = append(perso.Action , "Cri de guerre")
-		perso.Action = append(perso.Action , "Bloquer")
-	case 2 :
+		perso.Action = append(perso.Action, "Coup d'épée")
+		perso.Action = append(perso.Action, "Cri de guerre")
+		perso.Action = append(perso.Action, "Bloquer")
+	case 2:
 		perso.Vie_actuel = 80
 		perso.Vie_max = 80
-		perso.Action = append(perso.Action , "Flèche de fer")
-		perso.Action = append(perso.Action , "Flèche de poison")
-		perso.Action = append(perso.Action , "Dodge")
-	case 3 :
+		perso.Action = append(perso.Action, "Flèche de fer")
+		perso.Action = append(perso.Action, "Flèche de poison")
+		perso.Action = append(perso.Action, "Dodge")
+	case 3:
 		perso.Vie_actuel = 60
 		perso.Vie_max = 60
-		perso.Action = append(perso.Action , "Aiguille de mana")
-		perso.Action = append(perso.Action , "Boule de feu")
-		perso.Action = append(perso.Action , "Bouclier magique")
+		perso.Action = append(perso.Action, "Aiguille de mana")
+		perso.Action = append(perso.Action, "Boule de feu")
+		perso.Action = append(perso.Action, "Bouclier magique")
 	}
 }
 
