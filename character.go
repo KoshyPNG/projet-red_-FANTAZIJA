@@ -87,7 +87,7 @@ func InitCharacter() character {
 
 	}
 	perso.Inventaire_max = 10
-	perso.Piece = 20
+	perso.Piece = 50
 	perso.Res = true
 	perso.Poison = false
 	perso.Combat = false

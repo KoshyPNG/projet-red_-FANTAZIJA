@@ -47,9 +47,27 @@ func Use_object(a int, perso *character) {
 	switch objet {
 	case "Potion de soin":
 		PotH(perso)
+		remove(a, perso)
 
 	case "Grande Potion de soin":
 		PotGH(perso)
+		remove(a, perso)
+	case "Potion de poison" :
+		PotP(perso)
+		remove(a, perso)
+	case "Chapeau de l'aventurier"
+		equip := InitEquip(objet)
+		Equiper(&equip, perso)
+		remove(a, perso)
+	case "Tunique de l'aventurie"
+		equip := InitEquip(objet)
+		Equiper(&equip, perso)
+		remove(a, perso)
+	case "Bottes de l'aventurier"
+		equip := InitEquip(objet)
+		Equiper(&equip, perso)
+		remove(a, perso)
+	default:
+		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
 	}
-	remove(a, perso)
 }
