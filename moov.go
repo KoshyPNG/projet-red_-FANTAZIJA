@@ -8,19 +8,14 @@ import (
 func Moov(perso *character) {
 	fmt.Println("=====================")
 	fmt.Println("\nVous vous deplacez vers une nouvelle zone...")
-	if (*perso).Poison {
-		fmt.Println("Vous vous sentez malade")
-		(*perso).Tpois--
-		if (*perso).Tpois == 0 {
-			(*perso).Poison = false
-		}
-		(*perso).Vie_actuel -= 10
-	}
-
+	Poison(perso)
 	roll := rand.Intn(100) + 1
 
 	if roll <= 20 {
 		fmt.Println("Un gobelin surgit des buissons et vous attaque !")
+		perso.Combat = true
+		m := InitMonster("Zombie")
+		Combat(perso , &m)
 	} else if roll <= 40 {
 		fmt.Println("Vous tombez sur un campement. C'est l'ideal pour vous reposer ou crafter.")
 		camp(perso)
@@ -29,7 +24,6 @@ func Moov(perso *character) {
 		openMarchand(perso)
 	} else {
 		fmt.Println("La route est calme et sure. Vous avancez tranquillement.")
-		m := InitMonster("Zombie")
-		Combat(perso , &m)
+	
 	}
 }

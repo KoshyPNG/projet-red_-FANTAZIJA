@@ -33,12 +33,11 @@ func PotGH(perso *character) {
 }
 
 func PotP(perso *character) {
-	(*perso).Poison = true
-	if (*perso).Tpois != 0 {
-		(*perso).Tpois++
-	} else {
-		(*perso).Tpois = 3
-	}
+	GetPoison(perso)
+}
+
+func PotP_C(perso *character, monstre *monster) {
+	GP(monstre)
 }
 
 func Use_object(a int, perso *character) {
@@ -69,5 +68,21 @@ func Use_object(a int, perso *character) {
 		remove(a, perso)
 	default:
 		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
+	}
+}
+
+func Use_object_C(a int, perso *character, monstre *monster) {
+	a--
+	objet := (*perso).Inventaire[a]
+	switch objet {
+	case "Potion de soin":
+		PotH(perso)
+		remove(a, perso)
+	case "Grande Potion de soin":
+		PotGH(perso)
+		remove(a, perso)
+	case "Potion de poison" :
+		PotP_C(perso, monstre)
+		remove(a, perso)
 	}
 }

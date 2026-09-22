@@ -37,6 +37,7 @@ func attckCriGuerre() attack {
 		Degat:   false,
 		Buff:    true,
 		Debuff:  false,
+		TypeBuff: "attack",
 		ValBuff: 1.3,
 		Tbuff:   2,
 	}
@@ -89,7 +90,7 @@ func attackDodge() attack {
 		Vitesse: 100,
 		TypeBuff: "esquive",
 		Tbuff:    1,
-		ValBuff:  0.66,
+		ValBuff:  0.0 ,
 	}
 }
 
@@ -150,6 +151,7 @@ func attackCharge() attack {
 		Degat:    true,
 		Vitesse: 90,
 		ValDegat: 10,
+		Valcrit:  10,
 	}
 }
 
@@ -190,6 +192,7 @@ func attackR() attack {
 	var a attack
 	a.Nom = "RIEN"
 	a.Vitesse = 101
+	a.ValDegat = 0
 
 	return a 
 }

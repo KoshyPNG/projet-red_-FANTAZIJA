@@ -6,19 +6,25 @@ type character struct {
 	Nom            string
 	Vie_actuel     int
 	Vie_max        int
+	Res            bool
 	Level          float64
 	Piece          int
+
 	Inventaire     []string
 	Action         [](*attack)
-	Res            bool
 	Inventaire_max int
-	Poison bool
-	Combat bool
-	Tpois int
-	Equipement [3](*equip)
 	NbAchatSacoche int
+
+	Combat bool
+
+	Equipement [3](*equip)
+	
+	Tpois int
+	Poison bool
 	BuffA float64
+	TbuffA int
 	Buff float64
+	Tbuff int
 }
 
 func corrected(i string) string {
@@ -104,5 +110,7 @@ func InitCharacter() character {
 	perso.NbAchatSacoche  = 0
 	perso.BuffA = 1
 	perso.Buff = 1
+	perso.TbuffA = 0
+	perso.Tbuff = 0
 	return perso
 }
