@@ -10,9 +10,15 @@ func DisplayInfo(perso *character) {
 	fmt.Print("===========\n")
 	fmt.Print("Vie : ",perso.Vie_actuel)
 	fmt.Println("/",perso.Vie_max)
-	if (*perso).poison {
+	if (*perso).Poison {
 		fmt.Println("Vous ètes empoisonné")
 	}
+	tab := []string{"TÊTE : " ,"TORSE : " ,"JAMBE : "}
+	for i,v := range tab {
+		println(v, perso.Equipement[i].Nom)
+	}
+	fmt.Println()
+	fmt.Println("==========================")
 	fmt.Println(perso.Piece,"pièce d'or")
 	fmt.Println("==========================")
 	var b float64
