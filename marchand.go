@@ -21,7 +21,6 @@ func openMarchand(perso *character) {
 		fmt.Println("4. Sacoche à la flèche (+ 10 d'emplacement) - 50 Or")
 		fmt.Println("5. Quitter la boutique")
 		fmt.Print(" Que voulez-vous faire ? (1-5) : ")
-		
 
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
@@ -56,12 +55,16 @@ func openMarchand(perso *character) {
 				}
 
 			case "4":
-				if (*perso).Piece >= 50 {
-					(*perso).Piece -= 50
-					(*perso).Inventaire_max += 10
-					fmt.Println(" Les choses simples... une magnifique sacoche !")
+				if (*perso).NbAchatSacoche < 3 {
+					if (*perso).Piece >= 50 {
+						(*perso).Piece -= 50
+						(*perso).Inventaire_max += 10
+						fmt.Println(" Les choses simples... une magnifique sacoche !")
+					} else {
+						fmt.Println(" Vous n'avez pas assez d'or !")
+					}
 				} else {
-					fmt.Println(" Vous n'avez pas assez d'or !")
+					fmt.Println(" La sacoche est déjà trop grande, pas possible de faire plus (3/3) !")
 				}
 
 			case "5":
