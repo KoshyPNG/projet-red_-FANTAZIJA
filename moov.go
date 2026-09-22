@@ -8,11 +8,11 @@ import (
 func Moov(perso *character) {
 	fmt.Println("=====================")
 	fmt.Println("\nVous vous deplacez vers une nouvelle zone...")
-	if (*perso).poison {
+	if (*perso).Poison {
 		fmt.Println("Vous vous sentez malade")
-		(*perso).tpois--
-		if (*perso).tpois == 0 {
-			(*perso).poison = false
+		(*perso).Tpois--
+		if (*perso).Tpois == 0 {
+			(*perso).Poison = false
 		}
 		(*perso).Vie_actuel -= 10
 	}

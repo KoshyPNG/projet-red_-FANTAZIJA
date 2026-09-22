@@ -33,11 +33,11 @@ func PotGH(perso *character) {
 }
 
 func PotP(perso *character) {
-	(*perso).poison = true
-	if (*perso).tpois != 0 {
-		(*perso).tpois++
+	(*perso).Poison = true
+	if (*perso).Tpois != 0 {
+		(*perso).Tpois++
 	} else {
-		(*perso).tpois = 3
+		(*perso).Tpois = 3
 	}
 }
 
