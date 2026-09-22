@@ -29,5 +29,7 @@ func Moov(perso *character) {
 		openMarchand(perso)
 	} else {
 		fmt.Println("La route est calme et sure. Vous avancez tranquillement.")
+		m := InitMonster("Zombie")
+		Combat(perso , &m)
 	}
 }

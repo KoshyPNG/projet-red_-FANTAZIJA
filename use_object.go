@@ -55,15 +55,15 @@ func Use_object(a int, perso *character) {
 	case "Potion de poison" :
 		PotP(perso)
 		remove(a, perso)
-	case "Chapeau de l'aventurier"
+	case "Chapeau de l'aventurier" :
 		equip := InitEquip(objet)
 		Equiper(&equip, perso)
 		remove(a, perso)
-	case "Tunique de l'aventurie"
+	case "Tunique de l'aventurie" :
 		equip := InitEquip(objet)
 		Equiper(&equip, perso)
 		remove(a, perso)
-	case "Bottes de l'aventurier"
+	case "Bottes de l'aventurier" :
 		equip := InitEquip(objet)
 		Equiper(&equip, perso)
 		remove(a, perso)
