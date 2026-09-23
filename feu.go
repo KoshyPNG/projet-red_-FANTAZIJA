@@ -13,7 +13,7 @@ func Feu(perso *character) {
 func FeuM(perso *monster) {
 	if (*perso).Feu {
 		a := ((*perso).Tfeu) * 5
-		fmt.Println("Vous brulez de -",a)
+		fmt.Println((*perso).Nom , " brule de -",a)
 		(*perso).Vie_actuel -= a
 	}
 }

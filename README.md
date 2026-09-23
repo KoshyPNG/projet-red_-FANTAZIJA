@@ -48,17 +48,14 @@ Chaque classe commence avec trois actions différentes :
 	et `Bloquer`.
 - **Unité Tactique S.T.A.R.S.** : profil dégat critique, avec `Glock 26`,
 	`Fléchette de poison` et `Dodge`.
-- **Unité d'extermination S.T.A.R.S.** : grande réserve d'essence, avec
-	`Lance flamme`, `Rechargement` et `Coup de crosse`.
+- **Unité d'extermination S.T.A.R.S.** : grande réserve d'essence et gros dégat sans critique, avec `Lance flamme`, `Rechargement` et `Coup de crosse`.
 
 ## Combats
 
-Pendant un combat, choisissez le numéro d'une action. Le numéro `4` ouvre
-l'inventaire et permet d'utiliser un objet avant le tour du monstre.
+Pendant un combat, choisissez le numéro d'une action. 
 
 Les monstres peuvent être vaincus en réduisant leur vie à zéro. Les ennemis
-rencontrés pendant l'exploration sont notamment le Zombie, le Claqueur et le
-Solar. L'entraînement permet d'affronter M.A.X.I.M.E.
+sont le Zombie, le Claqueur et Solar. L'entraînement permet d'affronter M.A.X.I.M.E.
 
 ## Campement
 

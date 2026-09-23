@@ -8,13 +8,13 @@ type monster struct {
 	Attaque    [](*attack)
 	Loot       []string
 
-	Buffmin float64
+	Buffmin  float64
 	BuffAmin float64
 	BuffVmin float64
 
-    Feu bool
-	Tfeu int
-	Stun bool
+	Feu    bool
+	Tfeu   int
+	Stun   bool
 	Tpois  int
 	Poison bool
 
@@ -38,8 +38,8 @@ func monsterZombie() monster {
 		TbuffA:     0,
 		Buff:       1.0,
 		Tbuff:      0,
-		BuffV:       1.0,
-		TbuffV:      0,
+		BuffV:      1.0,
+		TbuffV:     0,
 	}
 	for _, nom := range []string{"Coup de griffe", "Morsure"} {
 		attack := InitAttack(nom)
@@ -126,12 +126,34 @@ func monsterMannequin() monster {
 		TbuffA:     0,
 		Buff:       1.0,
 		Tbuff:      0,
-		BuffV: 1.0,
+		BuffV:      1.0,
 	}
 	r := InitAttack("rien")
-	for i := 0; i< 3;i++{
+	for i := 0; i < 3; i++ {
 		monster.turn = append(monster.turn, &r)
 	}
+	return monster
+}
+
+func monsterGoliath() monster {
+	monster := monster{
+		Nom:        "Goliath",
+		Vie_actuel: 200,
+		Vie_max:    200,
+		Loot:       []string{"Kevlar", "Plaque en fer"},
+		BuffA:      0.8,
+		Buff:       0.8,
+		BuffV:      0.8,
+	}
+
+	cri := InitAttack("Cri de guerre")
+	poing := InitAttack("Poing titanesque")
+	monster.Attaque = []*attack{&cri, &poing}
+	monster.turn = []*attack{&cri, &cri, &cri, &poing}
+	monster.Buffmin = 0.8
+	monster.BuffAmin = 1.0
+	monster.BuffVmin = 0.8
+
 	return monster
 }
 
@@ -144,8 +166,10 @@ func InitMonster(nom string) monster {
 		m = monsterClaqueur()
 	case "Solar":
 		m = monsterMaxime()
-	case "M.A.X.I.M.E" :
+	case "M.A.X.I.M.E":
 		m = monsterMannequin()
+	case "Goliath":
+		m = monsterGoliath()
 	}
 	m.Stun = false
 	m.Feu = false
