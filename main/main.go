@@ -32,8 +32,8 @@ func main() {
 			projet_red.AccessInventory(perso)
 		case 4:
 			perso.Combat = true
-			m := InitMonster("M.A.X.I.M.E")
-			Combat(perso , &m)
+			m := projet_red.InitMonster("M.A.X.I.M.E")
+			projet_red.Combat(perso , &m)
 		case 5:
 			var b string
 			fmt.Println("OUI pour quittez ou NON pour annulé")

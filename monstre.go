@@ -126,6 +126,9 @@ func monsterMannequin() monster {
 		Tbuff:      0,
 	}
 	r := InitAttack("rien")
+	for i := 0; i< 3;i++{
+		monster.turn = append(monster.turn, &r)
+	}
 	return monster
 }
 
@@ -138,6 +141,8 @@ func InitMonster(nom string) monster {
 		m = monsterClaqueur()
 	case "Solar":
 		m = monsterMaxime()
+	case "M.A.X.I.M.E" :
+		m = monsterMannequin()
 	}
 	m.Stun = false
 	return m

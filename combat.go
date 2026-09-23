@@ -139,9 +139,7 @@ func TPersonnage(perso *character, monstre *monster, useP *attack, ) {
 		UseDebuff(perso, monstre, useP)
 	}
 	if (*useP).Essence {
-		(*perso).Essence_actuel -= (*useP).EssenceCost {
-
-		}
+		(*perso).Essence_actuel -= (*useP).EssenceCost
 	}
 
 	TB(monstre, (*monstre).Buff)
