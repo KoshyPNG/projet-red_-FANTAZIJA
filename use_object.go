@@ -14,6 +14,15 @@ func remove(a int, perso *character) {
 	(*perso).Inventaire = new
 }
 
+func Baril(perso *character) {
+	perso.Essence_actuel += 50
+	if perso.Essence_actuel > perso.Essence_max {
+		perso.Essence_actuel= perso.Essence_max
+	}
+	fmt.Print("Vous avez maintenant ", perso.Essence_actuel)
+	fmt.Println(" PV")
+}
+
 func RedB(perso *character) {
 	if (*perso).BuffV == (*perso).BuffVmin {
 		(*perso).BuffV = 1.5
@@ -79,6 +88,9 @@ func Use_object(a int, perso *character) {
 	case "RedBull" :
 		RedB(perso)
 		remove(a, perso)
+	case "Baril d'essence" :
+		Baril(perso)
+		remove(a, perso)
 	default:
 		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
 	}
@@ -100,6 +112,9 @@ func Use_object_C(a int, perso *character, monstre *monster) {
 	case "RedBull" :
 		RedB(perso)
 		remove(a, perso)
+	case "Baril d'essence" :
+		Baril(perso)
+		remove(a,perso)
 	default:
 		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
 	}
