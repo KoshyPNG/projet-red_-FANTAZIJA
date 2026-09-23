@@ -43,7 +43,7 @@ func attckCriGuerre() attack {
 		Debuff:  false,
 		TypeBuff: "attack",
 		ValBuff: 1.3,
-		Tbuff:   2,
+		Tbuff:   3,
 	}
 }
 
@@ -244,9 +244,9 @@ func InitAttack(nom string) attack {
 		return attckCriGuerre()
 	case "Bloquer":
 		return attackBloquer()
-	case "Flèche de fer":
+	case "Glock 26":
 		return attackFlecheFer()
-	case "Flèche de poison":
+	case "Flèchette de poison":
 		return attackFlechePoison()
 	case "Dodge":
 		return attackDodge()
