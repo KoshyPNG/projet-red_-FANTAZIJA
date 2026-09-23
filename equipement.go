@@ -105,11 +105,11 @@ func DesEquiper(a *equip, perso *character) {
 
 func InitEquip(nom string) equip {
 	switch nom {
-	case "Casque Renforcer":
+	case "Casquette Gucci Fraise":
 		return EquipChapeau()
 	case "Gilet par balles":
 		return EquipTunique()
-	case "Bottes Renforcé":
+	case "Timberland":
 		return EquipBotte()
 	}
 	return EquipR()

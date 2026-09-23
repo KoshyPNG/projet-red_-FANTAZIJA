@@ -31,7 +31,7 @@ func monsterZombie() monster {
 		Nom:        "Zombie",
 		Vie_actuel: 40,
 		Vie_max:    40,
-		Loot:       []string{"Pièce d'or", "Herbe", "Champignon", "Kevlar"},
+		Loot:       []string{"Pièce d'or", "Herbe", "Champignon", "Kevlar", "Peau fermenté"},
 		Tpois:      0,
 		Poison:     false,
 		BuffA:      1.0,
