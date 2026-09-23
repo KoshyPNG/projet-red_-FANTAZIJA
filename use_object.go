@@ -62,7 +62,7 @@ func PotP_C(perso *character, monstre *monster) {
 
 func PP7(perso *character, monstre *monster) {
 	monstre.Vie_actuel = 0
-	fmt.Println(perso.Nom, "utilise le PP7 silencieux et abat", monstre.Nom)
+	fmt.Println(perso.Nom, "utilise le PP7 silencieux sur", monstre.Nom)
 }
 
 func Use_object(a int, perso *character) {

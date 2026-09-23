@@ -10,24 +10,19 @@ d'horreur. Le joueur combat des monstres, récupère des ressources et améliore
 
 ## Installation et lancement
 
+Installer le ficher le projet en ZIP dans le dossier User puis dézipper le .
+
 Depuis la racine du projet :
 
 ```bash
-go run ./main
+PS C:\Users\NumUser\projet-red_Evil_Resident> go run .\main\
 ```
-
-Pour compiler l'application :
-
-```bash
-go build -o projet-red ./main
-```
-
-Puis lancer l'exécutable généré.
+Le jeu se lançera !!!!
 
 ## Déroulement d'une partie
 
-Au début de la partie, choisissez une classe. Ensuite, le menu principal
-propose :
+Au début de la partie, le chef des S.T.A.R.S. vous envoie explorer une zone
+dangereuse. Choisissez ensuite votre classe. Le menu principal propose :
 
 | Touche | Action |
 | --- | --- |
@@ -55,7 +50,14 @@ Chaque classe commence avec trois actions différentes :
 Pendant un combat, choisissez le numéro d'une action. 
 
 Les monstres peuvent être vaincus en réduisant leur vie à zéro. Les ennemis
-sont le Zombie, le Claqueur et Solar. L'entraînement permet d'affronter M.A.X.I.M.E.
+sont le Zombie, le Claqueur, Solar et le Goliath. L'entraînement permet
+d'affronter M.A.X.I.M.E.
+
+Pendant un combat :
+
+- `1` à `3` : utiliser une attaque du personnage ;
+- `4` : ouvrir l'inventaire et utiliser un objet ;
+- `5` : quitter le combat contre M.A.X.I.M.E.
 
 ## Campement
 
@@ -79,8 +81,12 @@ Recettes disponibles :
 ## Marchand
 
 Le marchand vend des potions, de l'essence et des sacoches qui augmentent la
-capacité de l'inventaire. Les achats utilisent les pièces récupérées pendant
-l'aventure.
+capacité de l'inventaire. Il propose aussi une ressource de craft aléatoire
+pour 10 pièces. Les ressources possibles sont `Herbe`, `Champignon`,
+`Peau fermenté`, `Tissus`, `Corde`, `Plaque en fer`, `Kevlar` et `Caoutchouc`.
+
+Solar peut donner le `PP7 silencieux`. Cet objet s'utilise pendant un combat
+et vainc immédiatement le monstre ciblé.
 
 ## Structure du projet
 
@@ -90,8 +96,9 @@ l'aventure.
 - `monstre.go` : définition et initialisation des monstres.
 - `camp.go` : repos et fabrication d'objets.
 - `marchand.go` : boutique et achats.
-- `accessinventory.go` et `use_object.go` : inventaire et objets utilisables.
+- `accessinventory.go` et `display.go` : inventaire et objets utilisables.
+- le reste sont des fichier utilisé par les fichier principaux. 
 
 ## État du projet
 
-Projet d'étude réaliser en 1 semaine. L'interface est le terminal.
+Projet d'étude réaliser en 1 semaine avec 2.0000000001 personnes . L'interface est le terminal.
