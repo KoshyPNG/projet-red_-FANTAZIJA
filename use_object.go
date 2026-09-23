@@ -97,7 +97,7 @@ func Use_object_C(a int, perso *character, monstre *monster) {
 	case "Potion de poison" :
 		PotP_C(perso, monstre)
 		remove(a, perso)
-	case RedBull :
+	case "RedBull" :
 		RedB(perso)
 		remove(a, perso)
 	default:
