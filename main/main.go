@@ -20,7 +20,7 @@ func main() {
 	for projet_red.IsDead(perso) {
 		fmt.Println("=====================")
 		fmt.Println("Que vous voulez faire ?")
-		fmt.Println("1 : AVANCEZ ; 2 : PERSONNAGE ; 3 : INVENTAIRE ; 4 : QUITTER")
+		fmt.Println("1 : AVANCEZ ; 2 : PERSONNAGE ; 3 : INVENTAIRE ; 4 : ENTRAINEMENT ; 5 : QUITTER")
 		var a int
 		fmt.Scan(&a)
 		switch a {
@@ -31,6 +31,10 @@ func main() {
 		case 3:
 			projet_red.AccessInventory(perso)
 		case 4:
+			perso.Combat = true
+			m := InitMonster("M.A.X.I.M.E")
+			Combat(perso , &m)
+		case 5:
 			var b string
 			fmt.Println("OUI pour quittez ou NON pour annulé")
 			fmt.Scan(&b)
