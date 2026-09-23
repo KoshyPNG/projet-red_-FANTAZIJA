@@ -126,6 +126,7 @@ func monsterMannequin() monster {
 		TbuffA:     0,
 		Buff:       1.0,
 		Tbuff:      0,
+		BuffV: 1.0,
 	}
 	r := InitAttack("rien")
 	for i := 0; i< 3;i++{

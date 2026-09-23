@@ -1,7 +1,6 @@
 package projet_red
 
 import (
-
 	"fmt"
 	"math/rand"
 )
@@ -21,7 +20,7 @@ func Critique(at *attack) int {
 	if (*at).Crit {
 		roll := rand.Intn(100) + 1
 		if roll <= (*at).Valcrit {
-			return ((*at).ValDegat)*2
+			return ((*at).ValDegat) * 2
 		}
 	}
 	return (*at).ValDegat
@@ -30,25 +29,24 @@ func Critique(at *attack) int {
 func SoloMonster(perso *character, monstre *monster, useM *attack) {
 	AccessInventoryC(perso, monstre)
 	fmt.Println("===================")
-	fmt.Println((*perso).Nom ," : ",(*perso).Vie_actuel,"/",(*perso).Vie_max)
-	
+	fmt.Println((*perso).Nom, " : ", (*perso).Vie_actuel, "/", (*perso).Vie_max)
+
 	TMonster(perso, monstre, useM)
 }
-	
 
 func Pfirst(perso *character, monstre *monster, useP *attack, useM *attack) {
 	fmt.Println("===================")
 	TPersonnage(perso, monstre, useP)
-	
+
 	if (*monstre).Vie_actuel > 0 {
-		TMonster(perso, monstre,useM)
+		TMonster(perso, monstre, useM)
 	}
 }
 
 func Mfirst(perso *character, monstre *monster, useP *attack, useM *attack) {
 	fmt.Println("===================")
 	TMonster(perso, monstre, useM)
-	
+
 	if (*perso).Vie_actuel > 0 {
 		TPersonnage(perso, monstre, useP)
 	}
@@ -56,56 +54,58 @@ func Mfirst(perso *character, monstre *monster, useP *attack, useM *attack) {
 
 func Combat(perso *character, monstre *monster) {
 	fmt.Println("===================")
-	fmt.Println("Vous tombez sur : ",(*monstre).Nom)
+	fmt.Println("Vous tombez sur : ", (*monstre).Nom)
 	fmt.Println("COMBATTEZ !!!!")
 	//roll := rand.Intn(100) + 1
 	tour := 1
 	rien := InitAttack("Rien")
-	for IsDead(perso) && (*monstre).Vie_actuel >= 0 {
+	Maxime := false
+	for IsDead(perso) && (*monstre).Vie_actuel > 0 {
 		fmt.Println("===================")
 
-		fmt.Println("TOUR ",tour)
+		fmt.Println("TOUR ", tour)
 		Poison(perso)
 		Pois(monstre)
 		Feu(perso)
 		FeuM(monstre)
 
-		fmt.Print((*monstre).Nom,"  :  ")
-		fmt.Print((*monstre).Vie_actuel,"/",(*monstre).Vie_max)
+		fmt.Print((*monstre).Nom, "  :  ")
+		fmt.Print((*monstre).Vie_actuel, "/", (*monstre).Vie_max)
 		fmt.Println("  ")
-		fmt.Println((*perso).Nom ," : ",(*perso).Vie_actuel,"/",(*perso).Vie_max)
-		for i,v := range (*perso).Action {
-			fmt.Println(i+1," : ",v.Nom )
+		fmt.Println((*perso).Nom, " : ", (*perso).Vie_actuel, "/", (*perso).Vie_max)
+		for i, v := range (*perso).Action {
+			fmt.Println(i+1, " : ", v.Nom)
 		}
 		fmt.Println("4 : inventaire ")
-		Maxime := false
+		
 		if (*monstre).Nom == "M.A.X.I.M.E (Modèle Anatomique X-pert Interractif Mesurable Ergonomique)" {
 			fmt.Println("5 : quittez M.A.X.I.M.E ")
 			Maxime = true
 		}
 
 		invet := false
-		var useP *attack
+		useP := &rien
 		var useM *attack
 		var a int
 		fmt.Scan(&a)
 
-		if a >0 && 4>= a {
+		if a > 0 && a <= 4 {
 			if a < 4 {
 				useP = (*perso).Action[a-1]
 			} else if Maxime {
-				useP = &rien
 				(*monstre).Vie_actuel = 0
 			} else {
 				invet = true
 			}
+		} else if a == 5 && Maxime {
+			(*monstre).Vie_actuel = 0
 		}
 
 		if tour > len((*monstre).turn) {
 			if tour%len((*monstre).turn) != 0 {
-				useM = (*monstre).turn[ tour%len((*monstre).turn) - 1 ]
+				useM = (*monstre).turn[tour%len((*monstre).turn)-1]
 			}
-			useM = (*monstre).turn[len((*monstre).turn)%tour -1]
+			useM = (*monstre).turn[len((*monstre).turn)%tour-1]
 		} else {
 			useM = (*monstre).turn[tour-1]
 		}
@@ -124,10 +124,10 @@ func Combat(perso *character, monstre *monster) {
 		if invet {
 			invet = false
 			SoloMonster(perso, monstre, useM)
-		} else if first(int((*perso).BuffV * float64(useP.Vitesse)), int((*monstre).BuffV * float64(useM.Vitesse))) == "1" {
+		} else if first(int((*perso).BuffV*float64(useP.Vitesse)), int((*monstre).BuffV*float64(useM.Vitesse))) == "1" {
 			Pfirst(perso, monstre, useP, useM)
 		} else {
-			
+
 			Mfirst(perso, monstre, useP, useM)
 		}
 		tour += 1
@@ -136,24 +136,27 @@ func Combat(perso *character, monstre *monster) {
 	if IsDead(perso) {
 		fmt.Println("===============")
 		fmt.Println((*monstre).Nom, " est vaincu !!!!!")
-		perso.Piece += 10
-		fmt.Println("Vous avez gagner 10 pièces")
-		roll := rand.Intn(len((*monstre).Loot)) 
+		if !Maxime {
+			perso.Piece += 10
+		    fmt.Println("Vous avez gagner 10 pièces")
+		}
+		
+		roll := rand.Intn(len((*monstre).Loot))
 		(*perso).Inventaire = append((*perso).Inventaire, (*monstre).Loot[roll])
-		fmt.Println("Vous avez récuperé", (*monstre).Loot[roll] )
+		fmt.Println("Vous avez récuperé", (*monstre).Loot[roll])
 	} else {
 		fmt.Println("Vous avez failli à votre mission")
 	}
 }
 
-func TPersonnage(perso *character, monstre *monster, useP *attack, ) {
+func TPersonnage(perso *character, monstre *monster, useP *attack) {
 	var a int
-	fmt.Println( (*perso).Nom ," utilise ",(*useP).Nom)
+	fmt.Println((*perso).Nom, " utilise ", (*useP).Nom)
 
 	if (*useP).Degat {
-		a = int( (float64(Critique(useP)) * (*perso).BuffA ) * (*monstre).Buff )
+		a = int((float64(Critique(useP)) * (*perso).BuffA) * (*monstre).Buff)
 		(*monstre).Vie_actuel -= a
-		fmt.Println( (*perso).Nom ," infligez -",(a))
+		fmt.Println((*perso).Nom, " infligez -", (a))
 	}
 
 	if (*useP).Buff {
@@ -173,13 +176,13 @@ func TPersonnage(perso *character, monstre *monster, useP *attack, ) {
 
 func TMonster(perso *character, monstre *monster, useM *attack) {
 	var a int
-	fmt.Println( (*monstre).Nom ," utilise ",(*useM).Nom)
+	fmt.Println((*monstre).Nom, " utilise ", (*useM).Nom)
 
 	if (*useM).Degat {
-		a = int( (float64(Critique(useM)) * (*monstre).BuffA ) * (*perso).Buff )
+		a = int((float64(Critique(useM)) * (*monstre).BuffA) * (*perso).Buff)
 		(*perso).Vie_actuel -= a
-		fmt.Println( (*perso).Nom ," infligez -",(a))
-		
+		fmt.Println((*perso).Nom, " infligez -", (a))
+
 	}
 
 	if (*useM).Buff {

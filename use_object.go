@@ -60,6 +60,11 @@ func PotP_C(perso *character, monstre *monster) {
 	GP(monstre)
 }
 
+func PP7(perso *character, monstre *monster) {
+	monstre.Vie_actuel = 0
+	fmt.Println(perso.Nom, "utilise le PP7 silencieux et abat", monstre.Nom)
+}
+
 func Use_object(a int, perso *character) {
 	a--
 	objet := (*perso).Inventaire[a]
@@ -115,6 +120,9 @@ func Use_object_C(a int, perso *character, monstre *monster) {
 	case "Baril d'essence" :
 		Baril(perso)
 		remove(a,perso)
+	case "PP7 silencieux":
+		PP7(perso, monstre)
+		remove(a, perso)
 	default:
 		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
 	}

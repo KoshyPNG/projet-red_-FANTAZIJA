@@ -17,6 +17,7 @@ func main() {
 	fmt.Println("Combattez pour votre vie en combat !!!!!!")
 	fmt.Println("Acheté des objets au marchand")
 	fmt.Println("Au camp vous pouvez Craft OU vous reposez")
+	
 	for projet_red.IsDead(perso) {
 		fmt.Println("=====================")
 		fmt.Println("Que vous voulez faire ?")
