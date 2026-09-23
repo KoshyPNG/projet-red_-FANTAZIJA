@@ -25,7 +25,9 @@ type character struct {
 	Buffmin float64
 	BuffAmin float64
 	BuffVmin float64
-	
+
+	Feu bool
+	Tfeu int
 	Stun bool
 	Tpois int
 	Poison bool
@@ -149,6 +151,9 @@ func InitCharacter() character {
 	perso.TbuffA = 0
 	perso.Tbuff = 0
 	perso.Stun = false
+
+	perso.Feu =  false
+	perso.Tfeu = 0
 
 	return perso
 }

@@ -107,9 +107,9 @@ func attackLanceFlamme() attack {
 		Nom:      "Lance flamme",
 		Vitesse: 60,
 		Essence: true,
-
+		Debuff: true,
 		EssenceCost: 30,
-
+		TypeBuff: "feu",
 		Degat:    true,
 		Crit:     false,
 

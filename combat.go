@@ -67,6 +67,8 @@ func Combat(perso *character, monstre *monster) {
 		fmt.Println("TOUR ",tour)
 		Poison(perso)
 		Pois(monstre)
+		Feu(perso)
+		FeuM(monstre)
 
 		fmt.Print((*monstre).Nom,"  :  ")
 		fmt.Print((*monstre).Vie_actuel,"/",(*monstre).Vie_max)
@@ -120,15 +122,21 @@ func Combat(perso *character, monstre *monster) {
 			Mfirst(perso, monstre, useP, useM)
 		}
 	}
+	if !IsDead(perso) {
+		fmt.Println((*monstre).Nom, " est vaincu !!!!!")
+	} else {
+		fmt.Println("Vous avez failli à votre mission")
+	}
 }
 
 func TPersonnage(perso *character, monstre *monster, useP *attack, ) {
-
+	var a int
 	fmt.Println( (*perso).Nom ," utilise ",(*useP).Nom)
 
 	if (*useP).Degat {
-		(*monstre).Vie_actuel -= int( (float64(Critique(useP)) * (*perso).BuffA ) * (*monstre).Buff )
-		
+		a = int( (float64(Critique(useP)) * (*perso).BuffA ) * (*monstre).Buff )
+		(*monstre).Vie_actuel -= a
+		fmt.Println( (*perso).Nom ," inflige -",(a))
 	}
 
 	if (*useP).Buff {
@@ -148,13 +156,14 @@ func TPersonnage(perso *character, monstre *monster, useP *attack, ) {
 }
 
 func TMonster(perso *character, monstre *monster, useM *attack) {
-
+	var a int
 	fmt.Println( (*monstre).Nom ," utilise ",(*useM).Nom)
 
 	if (*useM).Degat {
-		(*monstre).Vie_actuel -= int( (float64(Critique(useM)) * (*monstre).BuffA ) * (*perso).Buff )
-		TB(monstre, (*monstre).BuffA)
-		TurnBuff(perso, (*perso).Buff)
+		a = int( (float64(Critique(useM)) * (*monstre).BuffA ) * (*perso).Buff )
+		(*monstre).Vie_actuel -= a
+		fmt.Println( (*monstre).Nom ," inflige -",(a))
+		
 	}
 
 	if (*useM).Buff {
@@ -165,5 +174,7 @@ func TMonster(perso *character, monstre *monster, useM *attack) {
 		UseDebuff(perso, monstre, useM)
 	}
 
+	TB(monstre, (*monstre).BuffA)
+	TurnBuff(perso, (*perso).Buff)
 	fmt.Println((*monstre).Nom ," : ",(*monstre).Vie_actuel,"/",(*monstre).Vie_max)
 }

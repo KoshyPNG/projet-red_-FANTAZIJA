@@ -43,7 +43,8 @@ func UseBuff(perso *character, useP *attack) {
 }
 
 func UB(monstre *monster, useM *attack) {
-	if (*useM).TypeBuff == "attack" {
+	switch (*useM).TypeBuff {
+        case "attack":
 		if (*monstre).BuffA == 1.0 {
 			(*monstre).BuffA = (*useM).ValBuff
 			(*monstre).TbuffA = (*useM).Tbuff
@@ -51,7 +52,7 @@ func UB(monstre *monster, useM *attack) {
 			(*monstre).BuffA += (*useM).ValBuff - 1
 			(*monstre).TbuffA += 1
 		}
-	} else if (*useM).TypeBuff == "vie_actuel" {
+	case "vie_actuel":
 		if (*monstre).Buff == 1.0 {
 			(*monstre).Buff = (*useM).ValBuff
 			(*monstre).Tbuff = (*useM).Tbuff
@@ -59,7 +60,7 @@ func UB(monstre *monster, useM *attack) {
 			(*monstre).Buff += (*useM).ValBuff - 1
 			(*monstre).Tbuff += 1
 		}
-	} else if (*useM).TypeBuff == "esquive" {
+	case "esquive":
 		roll := rand.Intn(100) + 1
 		if roll <= 66 {
 			(*monstre).Buff = (*useM).ValBuff

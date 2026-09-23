@@ -12,6 +12,8 @@ type monster struct {
 	BuffAmin float64
 	BuffVmin float64
 
+    Feu bool
+	Tfeu int
 	Stun bool
 	Tpois  int
 	Poison bool
@@ -145,5 +147,7 @@ func InitMonster(nom string) monster {
 		m = monsterMannequin()
 	}
 	m.Stun = false
+	m.Feu = false
+	m.Tfeu = 0
 	return m
 }
