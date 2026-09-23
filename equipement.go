@@ -19,7 +19,7 @@ func EquipR() equip {
 
 func EquipChapeau() equip {
 	var e equip
-	e.Nom = "Casque Renforcer"
+	e.Nom = "Casquette Gucci Fraise"
 	e.description = "Vous vous sentez plus protégé"
 	e.pos = 0
 	e.val = 10
@@ -39,7 +39,7 @@ func EquipTunique() equip {
 
 func EquipBotte() equip {
 	var e equip
-	e.Nom = "Bottes Renforcé"
+	e.Nom = "Timberland"
 	e.description = "Vous vous sentez plus protégé"
 	e.pos = 2
 	e.val = 10
