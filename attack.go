@@ -252,9 +252,9 @@ func InitAttack(nom string) attack {
 		return attackDodge()
 	case "Lance flamme":
 		return attackLanceFlamme()
-	case "Boule de feu":
+	case "Rechargement":
 		return attackRechargement()
-	case "Bouclier magique":
+	case "Coup de crosse":
 		return attackCoupCrosse()
 	case "Coup de griffe":
 		return attackCoupGriffe()

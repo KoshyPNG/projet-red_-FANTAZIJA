@@ -61,7 +61,7 @@ func Combat(perso *character, monstre *monster) {
 	//roll := rand.Intn(100) + 1
 	tour := 1
 	rien := InitAttack("Rien")
-	for IsDead(perso) && (*monstre).Vie_actuel != 0 {
+	for IsDead(perso) && (*monstre).Vie_actuel >= 0 {
 		fmt.Println("===================")
 
 		fmt.Println("TOUR ",tour)
