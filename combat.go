@@ -40,7 +40,7 @@ func Pfirst(perso *character, monstre *monster, useP *attack, useM *attack) {
 	fmt.Println("===================")
 	TPersonnage(perso, monstre, useP)
 	
-	if (*monstre).Vie_actuel <= 0 {
+	if (*monstre).Vie_actuel > 0 {
 		TMonster(perso, monstre,useM)
 	}
 }
@@ -49,7 +49,7 @@ func Mfirst(perso *character, monstre *monster, useP *attack, useM *attack) {
 	fmt.Println("===================")
 	TMonster(perso, monstre, useM)
 	
-	if (*perso).Vie_actuel <= 0 {
+	if (*perso).Vie_actuel > 0 {
 		TPersonnage(perso, monstre, useP)
 	}
 }
@@ -78,6 +78,11 @@ func Combat(perso *character, monstre *monster) {
 			fmt.Println(i+1," : ",v.Nom )
 		}
 		fmt.Println("4 : inventaire ")
+		Maxime := false
+		if (*monstre).Nom == "M.A.X.I.M.E (Modèle Anatomique X-pert Interractif Mesurable Ergonomique)" {
+			fmt.Println("5 : quittez M.A.X.I.M.E ")
+			Maxime = true
+		}
 
 		invet := false
 		var useP *attack
@@ -88,6 +93,9 @@ func Combat(perso *character, monstre *monster) {
 		if a >0 && 4>= a {
 			if a < 4 {
 				useP = (*perso).Action[a-1]
+			} else if Maxime {
+				useP = &rien
+				(*monstre).Vie_actuel = 0
 			} else {
 				invet = true
 			}
@@ -112,12 +120,14 @@ func Combat(perso *character, monstre *monster) {
 			useM = &rien
 			(*monstre).Stun = false
 		}
-		if invet && !(*perso).Stun {
+
+		if invet {
 			invet = false
 			SoloMonster(perso, monstre, useM)
 		} else if first(int((*perso).BuffV * float64(useP.Vitesse)), int((*monstre).BuffV * float64(useM.Vitesse))) == "1" {
 			Pfirst(perso, monstre, useP, useM)
 		} else {
+			
 			Mfirst(perso, monstre, useP, useM)
 		}
 		tour += 1
