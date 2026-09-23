@@ -122,8 +122,13 @@ func Combat(perso *character, monstre *monster) {
 			Mfirst(perso, monstre, useP, useM)
 		}
 	}
-	if !IsDead(perso) {
+	if IsDead(perso) {
 		fmt.Println((*monstre).Nom, " est vaincu !!!!!")
+		perso.Piece += 10
+		fmt.Println("Vous avez gagner 10 pièces")
+		roll := rand.Intn(len((*monstre).Loot)) 
+		(*perso).Inventaire = append((*perso).Inventaire, (*monstre).Loot[roll])
+		fmt.Println("Vous avez récuperé" (*monstre).Loot[roll] )
 	} else {
 		fmt.Println("Vous avez failli à votre mission")
 	}
