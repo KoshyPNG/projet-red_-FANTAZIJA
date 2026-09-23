@@ -17,9 +17,9 @@ type attack struct {
 	ValBuff  float64
 }
 
-func attackCoupEpee() attack {
+func attackCoupMatraque() attack {
 	return attack{
-		Nom:      "Coup d'épée",
+		Nom:      "Coup de matraque",
 		Vitesse: 50    ,
 		Degat:    true,
 		Crit:     true,
@@ -57,7 +57,7 @@ func attackBloquer() attack {
 
 func attackFlecheFer() attack {
 	return attack{
-		Nom:      "Flèche de fer",
+		Nom:      "Glock 26",
 		Vitesse: 80,
 		Degat:    true,
 		Crit:     true,
@@ -70,7 +70,7 @@ func attackFlecheFer() attack {
 
 func attackFlechePoison() attack {
 	return attack{
-		Nom:      "Flèche de poison",
+		Nom:      "Flèchette de poison",
 		Vitesse: 50,
 		Degat:    true,
 		Crit:     true,
@@ -94,9 +94,9 @@ func attackDodge() attack {
 	}
 }
 
-func attackAiguilleMana() attack {
+func attackLanceFlamme() attack {
 	return attack{
-		Nom:      "Aiguille de mana",
+		Nom:      "Lance flamme",
 		Vitesse: 60,
 		Degat:    true,
 		Crit:     false,
@@ -104,9 +104,9 @@ func attackAiguilleMana() attack {
 	}
 }
 
-func attackBouleFeu() attack {
+func attackRechargement() attack {
 	return attack{
-		Nom:      "Boule de feu",
+		Nom:      "Rechargement",
 		Vitesse: 30,
 		Degat:    true,
 		Crit:     false,
@@ -114,9 +114,9 @@ func attackBouleFeu() attack {
 	}
 }
 
-func attackBouclierMagique() attack {
+func attackCoupCrosse() attack {
 	return attack{
-		Nom:      "Bouclier magique",
+		Nom:      "Coup de crosse",
 		Vitesse: 80,
 		Buff:     true,
 		TypeBuff: "vie_max",
@@ -199,8 +199,8 @@ func attackR() attack {
 
 func InitAttack(nom string) attack {
 	switch nom {
-	case "Coup d'épée":
-		return attackCoupEpee()
+	case "Coup de matraque":
+		return attackCoupMatraque()
 	case "Cri de guerre":
 		return attckCriGuerre()
 	case "Bloquer":
@@ -211,12 +211,12 @@ func InitAttack(nom string) attack {
 		return attackFlechePoison()
 	case "Dodge":
 		return attackDodge()
-	case "Aiguille de mana":
-		return attackAiguilleMana()
+	case "Lance flamme":
+		return attackLanceFlamme()
 	case "Boule de feu":
-		return attackBouleFeu()
+		return attackRechargement()
 	case "Bouclier magique":
-		return attackBouclierMagique()
+		return attackCoupCrosse()
 	case "Coup de griffe":
 		return attackCoupGriffe()
 	case "Morsure":
