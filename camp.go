@@ -48,9 +48,9 @@ func camp(perso *character) {
 				fmt.Println("1. Potion de soin")
 				fmt.Println("2. Potion de mana")
 				fmt.Println("3. Potion de poison ")
-				fmt.Println("4. Chapeau de l'aventurier ")
-				fmt.Println("5. Tunique de l'aventurie ")
-				fmt.Println("6. Bottes de l'aventurier ")
+				fmt.Println("4. Casquette Gucci Fraise ")
+				fmt.Println("5. Gilet par balle ")
+				fmt.Println("6. Timberland ")
 				fmt.Println("7. Retour au menu du camp ")
 
 				fmt.Println(" Que voulez-vous faire ? (1-7) : ")
@@ -133,7 +133,7 @@ func camp(perso *character) {
 
 				case "4":
 
-					objet := "Chapeau de l'aventurier"
+					objet := "Casquette Gucci Fraise"
 					elementASupprimer := "Tissus"
 					elementASupprimer2 := "Corde"
 					index1 := -1
@@ -158,7 +158,7 @@ func camp(perso *character) {
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 
 						fmt.Println("=============================")
-						fmt.Println(" Vous avez crée un Chapeau de l'aventurier !")
+						fmt.Println(" Vous avez crée une Casquette Gucci Fraise !")
 					} else {
 						fmt.Println("=============================")
 						fmt.Println("Pas assez de matières ...")
@@ -166,9 +166,9 @@ func camp(perso *character) {
 
 				case "5":
 
-					objet := "Tunique de l'aventurie"
-					elementASupprimer := "Fourrure de loup"
-					elementASupprimer2 := "Corde"
+					objet := "Gilet par balle"
+					elementASupprimer := "Plaque en fer"
+					elementASupprimer2 := "Kevlar"
 					index1 := -1
 					index2 := -1
 
@@ -191,7 +191,7 @@ func camp(perso *character) {
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 
 						fmt.Println("=============================")
-						fmt.Println(" Vous avez crée une Tunique de l'aventurie !")
+						fmt.Println(" Vous avez crée un Gilet !")
 					} else {
 						fmt.Println("=============================")
 						fmt.Println("Pas assez de matières ...")
@@ -199,7 +199,7 @@ func camp(perso *character) {
 
 				case "6":
 
-					objet := "Bottes de l'aventurier"
+					objet := "Timberland"
 					elementASupprimer := "Tissus"
 					elementASupprimer2 := "Caoutchouc"
 					index1 := -1
@@ -224,7 +224,7 @@ func camp(perso *character) {
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 
 						fmt.Println("=============================")
-						fmt.Println(" Vous avez crée une paire de Bottes de l'aventurier !")
+						fmt.Println(" Vous avez crée une paire de Timberland !")
 					} else {
 						fmt.Println("=============================")
 						fmt.Println("Pas assez de matières ...")
