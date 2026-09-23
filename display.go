@@ -8,6 +8,7 @@ func DisplayInfo(perso *character) {
 	fmt.Print("===========")
 	fmt.Print(perso.Nom)
 	fmt.Print("===========\n")
+	fmt.Println("Classe :  ", perso.Classe)
 	fmt.Print("Vie : ",perso.Vie_actuel)
 	fmt.Println("/",perso.Vie_max)
 	if (*perso).Poison {

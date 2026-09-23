@@ -5,12 +5,14 @@ type attack struct {
 	Vitesse int
 	Degat bool
 	Crit  bool
+	Essence bool
 
 	Buff   bool
 	Debuff bool
 
 	ValDegat int
 	Valcrit  int
+	EssenceCost int
 
 	TypeBuff string
 	Tbuff    int
@@ -21,6 +23,7 @@ func attackCoupMatraque() attack {
 	return attack{
 		Nom:      "Coup de matraque",
 		Vitesse: 50    ,
+		Essence: false,
 		Degat:    true,
 		Crit:     true,
 		Buff:     false,
@@ -34,6 +37,7 @@ func attckCriGuerre() attack {
 	return attack{
 		Nom:     "Cri de guerre",
 		Vitesse: 70,
+		Essence: false,
 		Degat:   false,
 		Buff:    true,
 		Debuff:  false,
@@ -47,6 +51,7 @@ func attackBloquer() attack {
 	return attack{
 		Nom:      "Bloquer",
 		Vitesse: 100,
+		Essence: false,
 		Degat:    false,
 		Buff:     true,
 		Debuff:   false,
@@ -59,6 +64,7 @@ func attackFlecheFer() attack {
 	return attack{
 		Nom:      "Glock 26",
 		Vitesse: 80,
+		Essence: false,
 		Degat:    true,
 		Crit:     true,
 		Buff:     false,
@@ -76,6 +82,7 @@ func attackFlechePoison() attack {
 		Crit:     true,
 		Debuff:   true,
 		Buff:     false,
+		Essence: false,
 		ValDegat: 10,
 		TypeBuff: "poison",
 		Tbuff:    3,
@@ -87,6 +94,7 @@ func attackDodge() attack {
 	return attack{
 		Nom:      "Dodge",
 		Buff:     true,
+		Essence: false,
 		Vitesse: 100,
 		TypeBuff: "esquive",
 		Tbuff:    1,
@@ -98,9 +106,14 @@ func attackLanceFlamme() attack {
 	return attack{
 		Nom:      "Lance flamme",
 		Vitesse: 60,
+		Essence: true,
+
+		EssenceCost: 30,
+
 		Degat:    true,
 		Crit:     false,
-		ValDegat: 25,
+
+		ValDegat: 30,
 	}
 }
 
@@ -108,9 +121,10 @@ func attackRechargement() attack {
 	return attack{
 		Nom:      "Rechargement",
 		Vitesse: 30,
-		Degat:    true,
-		Crit:     false,
-		ValDegat: 35,
+		Degat:    false,
+		TypeBuff  : "essence",
+		ValBuff: 45,
+		Essence: true,
 	}
 }
 
@@ -118,10 +132,12 @@ func attackCoupCrosse() attack {
 	return attack{
 		Nom:      "Coup de crosse",
 		Vitesse: 80,
-		Buff:     true,
-		TypeBuff: "vie_max",
-		Tbuff:    2,
-		ValBuff:  0.3,
+		Degat:    false,
+		Buff:    false,
+		Debuff:     true,
+		TypeBuff: "stun",
+		Tbuff:    1,
+		Essence: true,
 	}
 }
 
@@ -130,8 +146,11 @@ func attackCoupGriffe() attack {
 		Nom:      "Coup de griffe",
 		Vitesse: 50,
 		Degat:    true,
+		Buff:    false,
+		Debuff:     false,
 		ValDegat: 5,
 		Valcrit:  10,
+		Essence: true,
 	}
 }
 
@@ -139,6 +158,9 @@ func attackMorsure() attack {
 	return attack{
 		Nom:      "Morsure",
 		Degat:    true,
+		Essence:  false,
+		Buff:    false,
+		Debuff:     false,
 		Vitesse: 35,
 		ValDegat: 20,
 		Valcrit:  10,
@@ -149,9 +171,16 @@ func attackCharge() attack {
 	return attack{
 		Nom:      "Charge",
 		Degat:    true,
+		Essence:  false,
+		Buff:    true,
+		Debuff:     false,
 		Vitesse: 90,
 		ValDegat: 10,
 		Valcrit:  10,
+		TypeBuff: "Vitesse",
+		Tbuff:    2,
+		ValBuff:  1.2,
+		
 	}
 }
 
@@ -159,9 +188,14 @@ func attackLancerRedBull() attack {
 	return attack{
 		Nom:      "Lancer de RedBull",
 		Degat:    true,
+		Essence:  false,
+		Buff:    false,
+		Debuff:     true,
 		Vitesse: 80,
 		ValDegat: 30,
 		Valcrit:  10,
+		TypeBuff: "stun",
+		Tbuff:    1,
 	}
 }
 
@@ -169,6 +203,9 @@ func attackMorsureLoup() attack {
 	return attack{
 		Nom:      "Morsure de loup",
 		Degat:    true,
+		Essence:  false,
+		Buff:    false,
+		Debuff:     false,
 		Vitesse: 101,
 		ValDegat: 50,
 		Valcrit:  10,
@@ -180,6 +217,8 @@ func attackTraqueEmpoisonne() attack {
 		Nom:      "Traque empoisonné",
 		Degat:    true,
 		Debuff:   true,
+		Essence:  false,
+		Buff:    false,
 		Vitesse: 70,
 		ValDegat: 30,
 		TypeBuff: "poison",

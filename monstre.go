@@ -12,8 +12,10 @@ type monster struct {
 	BuffAmin float64
 	BuffVmin float64
 
+	Stun bool
 	Tpois  int
 	Poison bool
+
 	BuffA  float64
 	TbuffA int
 	Buff   float64
@@ -48,6 +50,7 @@ func monsterZombie() monster {
 	monster.Buffmin = 1.0
 	monster.BuffAmin = 1.0
 	monster.BuffVmin = 1.0
+
 	return monster
 }
 
@@ -127,13 +130,15 @@ func monsterMannequin() monster {
 }
 
 func InitMonster(nom string) monster {
+	var m monster
 	switch nom {
 	case "Zombie":
-		return monsterZombie()
+		m = monsterZombie()
 	case "Claqueur":
-		return monsterClaqueur()
+		m = monsterClaqueur()
 	case "Solar":
-		return monsterMaxime()
+		m = monsterMaxime()
 	}
-	return monster{}
+	m.Stun = false
+	return m
 }
