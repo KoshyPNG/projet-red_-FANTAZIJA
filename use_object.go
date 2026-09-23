@@ -14,6 +14,16 @@ func remove(a int, perso *character) {
 	(*perso).Inventaire = new
 }
 
+func RedB(perso *character) {
+	if (*perso).BuffV == (*perso).BuffVmin {
+		(*perso).BuffV = 1.5
+		(*perso).TbuffV = 2
+	} else {
+		(*perso).BuffV += 0.1
+		(*perso).TbuffV += 1
+	}
+}
+
 func PotH(perso *character) {
 	perso.Vie_actuel += 30
 	if perso.Vie_actuel > perso.Vie_max {
@@ -66,6 +76,9 @@ func Use_object(a int, perso *character) {
 		equip := InitEquip(objet)
 		Equiper(&equip, perso)
 		remove(a, perso)
+	case "RedBull" :
+		RedB(perso)
+		remove(a, perso)
 	default:
 		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
 	}
@@ -84,5 +97,10 @@ func Use_object_C(a int, perso *character, monstre *monster) {
 	case "Potion de poison" :
 		PotP_C(perso, monstre)
 		remove(a, perso)
+	case RedBull :
+		RedB(perso)
+		remove(a, perso)
+	default:
+		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
 	}
 }

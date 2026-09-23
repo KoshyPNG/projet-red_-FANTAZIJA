@@ -4,6 +4,7 @@ import "fmt"
 
 type character struct {
 	Nom            string
+	Classe         string
 	Vie_actuel     int
 	Vie_max        int
 	Res            bool
@@ -18,13 +19,21 @@ type character struct {
 	Combat bool
 
 	Equipement [3](*equip)
+
+	Buffmin float64
+	BuffAmin float64
+	BuffVmin float64
 	
 	Tpois int
 	Poison bool
+	stun bool
+
 	BuffA float64
 	TbuffA int
 	Buff float64
 	Tbuff int
+	BuffV float64
+	TbuffV int
 }
 
 func corrected(i string) string {
@@ -49,35 +58,49 @@ func creation(perso *character) {
 	var i int
 	fmt.Println("===========================")
 	fmt.Println("Quellle est votre classe ?")
-	fmt.Println("1 : CHEVALIER ;  2 : ARCHER ; 3 : MAGICIEN(pas fini)")
+	fmt.Println("1 : CRS S.T.A.R.S  " )
+	fmt.Println("2 : Unité Tactique S.T.A.R.S")
+	fmt.Println("3 : Unité d'éxtermination S.T.A.R.S")
 	fmt.Scan(&i)
 	switch i {
 	case 1:
+		perso.Classe = "CRS S.T.A.R.S"
 		perso.Vie_actuel = 100
 		perso.Vie_max = 100
-		tab := []string{"Coup d'épée","Cri de guerre","Bloquer"}
+		tab := []string{"Coup de matraque","Cri de guerre","Bloquer"}
 		for _,val := range tab {
 			c := InitAttack(val)
 			perso.Action = append(perso.Action , &c)
 		}
+		perso.Buffmin = 1.2
+		perso.BuffAmin = 1.0
+		perso.BuffVmin = 1.0
 	
 	case 2 :
+		perso.Classe = "Unité Tactique S.T.A.R.S"
 		perso.Vie_actuel = 80
 		perso.Vie_max = 80
-		tab := []string{"Flèche de fer","Flèche de poison","Dodge"}
+		tab := []string{"Glock 26","Flèchette de poison","Dodge"}
 		for _,val := range tab {
 			c := InitAttack(val)
 			perso.Action = append(perso.Action , &c)
 		}
+		perso.Buffmin = 1.0
+		perso.BuffAmin = 1.0
+		perso.BuffVmin = 1.1
 
 	case 3 :
+		perso.Classe = "Unité d'éxtermination S.T.A.R.S"
 		perso.Vie_actuel = 60
 		perso.Vie_max = 60
-		tab := []string{ "Aiguille de mana", "Boule de feu","Bouclier magique"}
+		tab := []string{ "Lance flamme", "Rechargement","Coup de crosse"}
 		for _,val := range tab {
 			c := InitAttack(val)
 			perso.Action = append(perso.Action , &c)
 		}
+		perso.Buffmin = 1.0
+		perso.BuffAmin = 1.1
+		perso.BuffVmin = 1.0
 
 	}
 }
@@ -108,9 +131,14 @@ func InitCharacter() character {
 	perso.Combat = false
 	perso.Tpois = 0
 	perso.NbAchatSacoche  = 0
-	perso.BuffA = 1
-	perso.Buff = 1
+
+	perso.BuffA = perso.BuffAmin
+	perso.Buff = perso.Buffmin
+	perso.BuffV = perso.BuffVmin
+
+	perso.TbuffV = 0
 	perso.TbuffA = 0
 	perso.Tbuff = 0
+
 	return perso
 }
