@@ -17,7 +17,7 @@ func EquipR() equip {
 
 func EquipChapeau() equip {
 	var e equip
-	e.Nom = "Chapeau de l'aventurier"
+	e.Nom = "Casquette Gucci Fraise"
 	e.description = "Vous vous sentez plus protégé"
 	e.pos = 0
 	e.val = 10
@@ -26,7 +26,7 @@ func EquipChapeau() equip {
 
 func EquipTunique() equip {
 	var e equip
-	e.Nom = "Tunique de l'aventurie"
+	e.Nom = "Gilet par balle"
 	e.description = "Vous vous sentez plus protégé"
 	e.pos = 1
 	e.val = 30
@@ -35,7 +35,7 @@ func EquipTunique() equip {
 
 func EquipBotte() equip {
 	var e equip
-	e.Nom = "Bottes de l'aventurier"
+	e.Nom = "Timberland"
 	e.description = "Vous vous sentez plus protégé"
 	e.pos = 2
 	e.val = 10
