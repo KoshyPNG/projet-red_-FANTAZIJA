@@ -11,6 +11,8 @@ func DisplayInfo(perso *character) {
 	fmt.Println("Classe :  ", perso.Classe)
 	fmt.Print("Vie : ",perso.Vie_actuel)
 	fmt.Println("/",perso.Vie_max)
+	fmt.Print("Vie : ",perso.Essence_actuel)
+	fmt.Println("/",perso.Essence_max)
 	if (*perso).Poison {
 		fmt.Println("Vous ètes empoisonné")
 	}

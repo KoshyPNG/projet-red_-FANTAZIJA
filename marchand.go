@@ -17,7 +17,7 @@ func openMarchand(perso *character) {
 		fmt.Printf(" Votre or : %d pièces\n", (*perso).Piece)
 		fmt.Println("1. Potion de soin (+30 PV) - 15 Or")
 		fmt.Println("2. Grande Potion (+50 PV) - 30 Or")
-		fmt.Println("3. Baril d'essence (+30 mana) - 15 Or")
+		fmt.Println("3. Baril d'essence (+30 d'essence) - 15 Or")
 		fmt.Println("4. Potion de poison (-10 par action) - 20 Or")
 		fmt.Println("5. Sacoche à la flèche (+ 10 d'emplacement) - 50 Or")
 		fmt.Println("6. Quitter la boutique")

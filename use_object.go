@@ -51,6 +51,15 @@ func PotGH(perso *character) {
 	fmt.Println(" PV")
 }
 
+func PotEss(perso *character) {
+	perso.Essence_actuel += 30
+	if perso.Essence_actuel > perso.Essence_max {
+		perso.Essence_actuel = perso.Essence_max
+	}
+	fmt.Print("Vous avez maintenant ", perso.Essence_actuel)
+	fmt.Println(" d'essence")
+}
+
 func PotP(perso *character) {
 	GetPoison(perso)
 }
@@ -70,18 +79,21 @@ func Use_object(a int, perso *character) {
 	case "Grande Potion de soin":
 		PotGH(perso)
 		remove(a, perso)
+	case "Baril d'essence":
+		PotEss(perso)
+		remove(a, perso)
 	case "Potion de poison" :
 		PotP(perso)
 		remove(a, perso)
-	case "Chapeau de l'aventurier" :
+	case "Casquette Gucci Fraise" :
 		equip := InitEquip(objet)
 		Equiper(&equip, perso)
 		remove(a, perso)
-	case "Tunique de l'aventurie" :
+	case "Gilet par balles" :
 		equip := InitEquip(objet)
 		Equiper(&equip, perso)
 		remove(a, perso)
-	case "Bottes de l'aventurier" :
+	case "Timberland" :
 		equip := InitEquip(objet)
 		Equiper(&equip, perso)
 		remove(a, perso)

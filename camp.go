@@ -49,7 +49,7 @@ func camp(perso *character) {
 				fmt.Println("2. Potion de mana")
 				fmt.Println("3. Potion de poison ")
 				fmt.Println("4. Casquette Gucci Fraise ")
-				fmt.Println("5. Gilet par balle ")
+				fmt.Println("5. Gilet par balles ")
 				fmt.Println("6. Timberland ")
 				fmt.Println("7. Retour au menu du camp ")
 
@@ -166,7 +166,7 @@ func camp(perso *character) {
 
 				case "5":
 
-					objet := "Gilet par balle"
+					objet := "Gilet par balles"
 					elementASupprimer := "Plaque en fer"
 					elementASupprimer2 := "Kevlar"
 					index1 := -1
@@ -191,7 +191,7 @@ func camp(perso *character) {
 						(*perso).Inventaire = append((*perso).Inventaire, objet)
 
 						fmt.Println("=============================")
-						fmt.Println(" Vous avez crée un Gilet !")
+						fmt.Println(" Vous avez crée un Gilet par balles !")
 					} else {
 						fmt.Println("=============================")
 						fmt.Println("Pas assez de matières ...")
