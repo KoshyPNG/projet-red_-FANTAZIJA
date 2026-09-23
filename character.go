@@ -6,6 +6,8 @@ type character struct {
 	Nom            string
 	Vie_actuel     int
 	Vie_max        int
+	Essence_actuel int
+	Essence_max    int
 	Res            bool
 	Level          float64
 	Piece          int
@@ -55,6 +57,8 @@ func creation(perso *character) {
 	case 1:
 		perso.Vie_actuel = 100
 		perso.Vie_max = 100
+		Essence_actuel = 50
+		Essence_max = 50
 		tab := []string{"Coup d'épée","Cri de guerre","Bloquer"}
 		for _,val := range tab {
 			c := InitAttack(val)
@@ -64,6 +68,8 @@ func creation(perso *character) {
 	case 2 :
 		perso.Vie_actuel = 80
 		perso.Vie_max = 80
+		Essence_actuel = 65
+		Essence_max = 65
 		tab := []string{"Flèche de fer","Flèche de poison","Dodge"}
 		for _,val := range tab {
 			c := InitAttack(val)
@@ -73,6 +79,8 @@ func creation(perso *character) {
 	case 3 :
 		perso.Vie_actuel = 60
 		perso.Vie_max = 60
+		Essence_actuel = 100
+		Essence_max = 100
 		tab := []string{ "Aiguille de mana", "Boule de feu","Bouclier magique"}
 		for _,val := range tab {
 			c := InitAttack(val)

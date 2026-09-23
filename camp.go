@@ -32,6 +32,10 @@ func camp(perso *character) {
 			if (*perso).Vie_actuel > (*perso).Vie_max {
 				(*perso).Vie_actuel = (*perso).Vie_max
 			}
+			(*perso).Essence_actuel += 20
+			if (*perso).Essence_actuel > (*perso).Essence_max {
+				(*perso).Essence_actuel = (*perso).Essence_max
+			}
 			fmt.Println(" Plein d'énergie !")
 			return
 
@@ -41,14 +45,15 @@ func camp(perso *character) {
 				fmt.Println("=============================")
 				fmt.Println("Que voulez vous fabriquer ?")
 				fmt.Println("=============================")
-				fmt.Println("1. Petite potion de soin")
-				fmt.Println("2. Potion de poison ")
-				fmt.Println("3. Chapeau de l'aventurier ")
-				fmt.Println("4. Tunique de l'aventurie ")
-				fmt.Println("5. Bottes de l'aventurier ")
-				fmt.Println("6. Retour au menu du camp ")
+				fmt.Println("1. Potion de soin")
+				fmt.Println("2. Potion de mana")
+				fmt.Println("3. Potion de poison ")
+				fmt.Println("4. Chapeau de l'aventurier ")
+				fmt.Println("5. Tunique de l'aventurie ")
+				fmt.Println("6. Bottes de l'aventurier ")
+				fmt.Println("7. Retour au menu du camp ")
 
-				fmt.Println(" Que voulez-vous faire ? (1-3) : ")
+				fmt.Println(" Que voulez-vous faire ? (1-7) : ")
 				fmt.Println("=============================")
 
 				input2, _ := reader.ReadString('\n')
@@ -81,6 +86,29 @@ func camp(perso *character) {
 
 				case "2":
 
+					objet := "Baril d'essence"
+					elementASupprimer := "Peau fermenté"
+					index := -1
+
+					for i, v := range (*perso).Inventaire {
+						if v == elementASupprimer {
+							index = i
+							break
+						}
+					}
+
+					if index != -1 {
+						remoov(index, perso)
+						(*perso).Inventaire = append((*perso).Inventaire, objet)
+						fmt.Println("=============================")
+						fmt.Println(" Vous avez crée un Baril d'essence !")
+					} else {
+						fmt.Println("=============================")
+						fmt.Println("Pas de peau, vous en aurez peut être la prochaine fois ...")
+					}
+
+				case "3":
+
 					objet := "Potion de poison"
 					elementASupprimer := "Champignon"
 					index := -1
@@ -103,7 +131,7 @@ func camp(perso *character) {
 						fmt.Println("Pas de champignon, pas de poison ...")
 					}
 
-				case "3":
+				case "4":
 
 					objet := "Chapeau de l'aventurier"
 					elementASupprimer := "Tissus"
@@ -136,7 +164,7 @@ func camp(perso *character) {
 						fmt.Println("Pas assez de matières ...")
 					}
 
-				case "4":
+				case "5":
 
 					objet := "Tunique de l'aventurie"
 					elementASupprimer := "Fourrure de loup"
@@ -169,7 +197,7 @@ func camp(perso *character) {
 						fmt.Println("Pas assez de matières ...")
 					}
 
-				case "5":
+				case "6":
 
 					objet := "Bottes de l'aventurier"
 					elementASupprimer := "Tissus"
@@ -202,7 +230,7 @@ func camp(perso *character) {
 						fmt.Println("Pas assez de matières ...")
 					}
 
-				case "6":
+				case "7":
 
 					bo = false
 
