@@ -26,6 +26,7 @@ type character struct {
 	BuffAmin float64
 	BuffVmin float64
 	
+	Stun bool
 	Tpois int
 	Poison bool
 	stun bool
@@ -69,8 +70,8 @@ func creation(perso *character) {
 		perso.Classe = "CRS S.T.A.R.S"
 		perso.Vie_actuel = 100
 		perso.Vie_max = 100
-		Essence_actuel = 50
-		Essence_max = 50
+		perso.Essence_actuel = 50
+		perso.Essence_max = 50
 		tab := []string{"Coup de matraque","Cri de guerre","Bloquer"}
 		for _,val := range tab {
 			c := InitAttack(val)
@@ -84,8 +85,8 @@ func creation(perso *character) {
 		perso.Classe = "Unité Tactique S.T.A.R.S"
 		perso.Vie_actuel = 80
 		perso.Vie_max = 80
-		Essence_actuel = 65
-		Essence_max = 65
+		perso.Essence_actuel = 65
+		perso.Essence_max = 65
 		tab := []string{"Glock 26","Flèchette de poison","Dodge"}
 		for _,val := range tab {
 			c := InitAttack(val)
@@ -99,8 +100,8 @@ func creation(perso *character) {
 		perso.Classe = "Unité d'éxtermination S.T.A.R.S"
 		perso.Vie_actuel = 60
 		perso.Vie_max = 60
-		Essence_actuel = 100
-		Essence_max = 100
+		perso.Essence_actuel = 100
+		perso.Essence_max = 100
 		tab := []string{ "Lance flamme", "Rechargement","Coup de crosse"}
 		for _,val := range tab {
 			c := InitAttack(val)
@@ -147,6 +148,7 @@ func InitCharacter() character {
 	perso.TbuffV = 0
 	perso.TbuffA = 0
 	perso.Tbuff = 0
+	perso.Stun = false
 
 	return perso
 }
