@@ -12,7 +12,7 @@ func Moov(perso *character) {
 	roll := rand.Intn(100) + 1
 
 	if roll <= 20 {
-		fmt.Println("Un gobelin surgit des buissons et vous attaque !")
+		fmt.Println("Un ennemi surgit de derrière le mur et vous fonce dessus !")
 		perso.Combat = true
 		m := InitMonster("Zombie")
 		Combat(perso , &m)
@@ -22,6 +22,16 @@ func Moov(perso *character) {
 	} else if roll <= 60 {
 		fmt.Println("Vous croisez un marchand ambulant qui propose de bonnes affaires.")
 		openMarchand(perso)
+	} else if roll <= 70 {
+		fmt.Println("Un ennemi surgit de derrière le mur et vous fonce dessus !")
+		perso.Combat = true
+		m := InitMonster("Claqueur")
+		Combat(perso , &m)
+	} else if roll <= 72 {
+		fmt.Println("Un ennemi surgit de derrière le mur et vous fonce dessus !")
+		perso.Combat = true
+		m := InitMonster("Solar")
+		Combat(perso , &m)
 	} else {
 		fmt.Println("La route est calme et sure. Vous avancez tranquillement.")
 	

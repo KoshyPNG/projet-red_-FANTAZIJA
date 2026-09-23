@@ -18,7 +18,7 @@ type monster struct {
 
 func monsterZombie() monster {
 	monster := monster{
-		Nom:        "un Zombie",
+		Nom:        "Zombie",
 		Vie_actuel: 40,
 		Vie_max:    40,
 		Loot:       []string{"Pièce d'or", "Herbe", "Champignon"},
@@ -42,7 +42,7 @@ func monsterZombie() monster {
 
 func monsterClaqueur() monster {
 	monster := monster{
-		Nom:        "un Claqueur",
+		Nom:        "Claqueur",
 		Vie_actuel: 65,
 		Vie_max:    65,
 		Loot:       []string{"Pièce d'or", "Tissus", "Corde"},
@@ -85,6 +85,23 @@ func monsterMaxime() monster {
 	attack2 := monster.Attaque[2]
 	attack3 := monster.Attaque[1]
 	monster.turn = [](*attack){attack1, attack3, attack2}
+	return monster
+}
+
+func monsterMannequin() monster {
+	monster := monster{
+		Nom:        "M.A.X.I.M.E (Modèle Anatomique X-pert Interractif Mesurable Ergonomique)",
+		Vie_actuel: 56100,
+		Vie_max:    56100,
+		Loot:       []string{"Pièce d'or", "Herbe", "Champignon"},
+		Tpois:      0,
+		Poison:     false,
+		BuffA:      1.0,
+		TbuffA:     0,
+		Buff:       1.0,
+		Tbuff:      0,
+	}
+	r := InitAttack("rien")
 	return monster
 }
 
