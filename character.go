@@ -39,6 +39,8 @@ type character struct {
 	Tbuff int
 	BuffV float64
 	TbuffV int
+
+	count int
 }
 
 func corrected(i string) string {
@@ -155,5 +157,6 @@ func InitCharacter() character {
 	perso.Feu =  false
 	perso.Tfeu = 0
 
+	p.count = 0
 	return perso
 }
