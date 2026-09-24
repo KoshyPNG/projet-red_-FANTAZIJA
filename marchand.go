@@ -1,15 +1,11 @@
 package projet_red
 
 import (
-	"bufio"
 	"fmt"
 	"math/rand"
-	"os"
-	"strings"
 )
 
 func openMarchand(perso *character) {
-	reader := bufio.NewReader(os.Stdin)
 
 	for {
 		fmt.Println("\n========================================")
@@ -25,12 +21,12 @@ func openMarchand(perso *character) {
 		fmt.Println("7. Quitter la boutique")
 		fmt.Print(" Que voulez-vous faire ? (1-7) : ")
 
-		input, _ := reader.ReadString('\n')
-		input = strings.TrimSpace(input)
+		var input int
+		fmt.Scan(&input)
 
 		if len((*perso).Inventaire) < (*perso).Inventaire_max {
 			switch input {
-			case "1":
+			case 1:
 				if (*perso).Piece >= 15 {
 					(*perso).Piece = (*perso).Piece - 15
 					(*perso).Inventaire = append((*perso).Inventaire, "Potion de soin")
@@ -39,7 +35,7 @@ func openMarchand(perso *character) {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}
 
-			case "2":
+			case 2:
 				if (*perso).Piece >= 30 {
 					(*perso).Piece -= 30
 					(*perso).Inventaire = append((*perso).Inventaire, "Grande Potion de soin")
@@ -48,7 +44,7 @@ func openMarchand(perso *character) {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}
 
-			case "3":
+			case 3:
 				if (*perso).Piece >= 25 {
 					(*perso).Piece -= 25
 					(*perso).Inventaire = append((*perso).Inventaire, "Baril d'essence")
@@ -57,7 +53,7 @@ func openMarchand(perso *character) {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}
 
-			case "4":
+			case 4:
 				if (*perso).Piece >= 20 {
 					(*perso).Piece -= 20
 					(*perso).Inventaire = append((*perso).Inventaire, "Potion de poison")
@@ -66,7 +62,7 @@ func openMarchand(perso *character) {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}
 
-			case "5":
+			case 5:
 				if (*perso).NbAchatSacoche < 3 {
 					if (*perso).Piece >= 50 {
 						(*perso).Piece -= 50
@@ -79,7 +75,7 @@ func openMarchand(perso *character) {
 					fmt.Println(" La sacoche est déjà trop grande, pas possible de faire plus (3/3) !")
 				}
 
-			case "6":
+			case 6:
 				if (*perso).Piece >= 10 {
 					ressources := []string{"Herbe", "Champignon", "Peau fermenté", "Tissus", "Corde", "Plaque en fer", "Kevlar", "Caoutchouc"}
 					ressource := ressources[rand.Intn(len(ressources))]
@@ -90,7 +86,7 @@ func openMarchand(perso *character) {
 					fmt.Println(" Vous n'avez pas assez d'or !")
 				}
 
-			case "7":
+			case 7:
 				fmt.Println("Le marchand vous salue : 'Revenez quand vous voulez l'ami !'")
 				return
 
