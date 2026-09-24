@@ -95,6 +95,7 @@ func openMarchand(perso *character) {
 			}
 		} else {
 			fmt.Println("Poche pleine, pas possible reviens quand tu te seras vidé !")
+			return
 		}
 	}
 }

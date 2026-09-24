@@ -1,14 +1,10 @@
 package projet_red
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 func camp(perso *character) {
-	reader := bufio.NewReader(os.Stdin)
 	bo := true
 	for {
 		fmt.Println("\n========================================")
@@ -21,12 +17,12 @@ func camp(perso *character) {
 		fmt.Println("3. Quitter la camp")
 		fmt.Print(" Que voulez-vous faire ? (1-3) : ")
 
-		input, _ := reader.ReadString('\n')
-		input = strings.TrimSpace(input)
+		var input int
+		fmt.Scan(&input)
 
 		switch input {
 
-		case "1":
+		case 1:
 			fmt.Println("Un bon dodo !")
 			(*perso).Vie_actuel += 20
 			if (*perso).Vie_actuel > (*perso).Vie_max {
@@ -39,14 +35,14 @@ func camp(perso *character) {
 			fmt.Println(" Plein d'énergie !")
 			return
 
-		case "2":
+		case 2:
 
 			for bo {
 				fmt.Println("=============================")
 				fmt.Println("Que voulez vous fabriquer ?")
 				fmt.Println("=============================")
 				fmt.Println("1. Potion de soin")
-				fmt.Println("2. Potion de mana")
+				fmt.Println("2. un Baril d'essence")
 				fmt.Println("3. Potion de poison ")
 				fmt.Println("4. Casquette Gucci Fraise ")
 				fmt.Println("5. Gilet par balles ")
@@ -56,12 +52,12 @@ func camp(perso *character) {
 				fmt.Println(" Que voulez-vous faire ? (1-7) : ")
 				fmt.Println("=============================")
 
-				input2, _ := reader.ReadString('\n')
-				input2 = strings.TrimSpace(input2)
+				var input2 int
+				fmt.Scan(&input2)
 
 				switch input2 {
 
-				case "1":
+				case 1:
 
 					objet := "Potion de soin"
 					elementASupprimer := "Herbe"
@@ -84,7 +80,7 @@ func camp(perso *character) {
 						fmt.Println("Pas d'herbe, pas de potion ...")
 					}
 
-				case "2":
+				case 2:
 
 					objet := "Baril d'essence"
 					elementASupprimer := "Peau fermenté"
@@ -107,7 +103,7 @@ func camp(perso *character) {
 						fmt.Println("Pas de peau, vous en aurez peut être la prochaine fois ...")
 					}
 
-				case "3":
+				case 3:
 
 					objet := "Potion de poison"
 					elementASupprimer := "Champignon"
@@ -131,7 +127,7 @@ func camp(perso *character) {
 						fmt.Println("Pas de champignon, pas de poison ...")
 					}
 
-				case "4":
+				case 4:
 
 					objet := "Casquette Gucci Fraise"
 					elementASupprimer := "Tissus"
@@ -164,7 +160,7 @@ func camp(perso *character) {
 						fmt.Println("Pas assez de matières ...")
 					}
 
-				case "5":
+				case 5:
 
 					objet := "Gilet par balles"
 					elementASupprimer := "Plaque en fer"
@@ -197,7 +193,7 @@ func camp(perso *character) {
 						fmt.Println("Pas assez de matières ...")
 					}
 
-				case "6":
+				case 6:
 
 					objet := "Timberland"
 					elementASupprimer := "Tissus"
@@ -230,7 +226,7 @@ func camp(perso *character) {
 						fmt.Println("Pas assez de matières ...")
 					}
 
-				case "7":
+				case 7:
 
 					bo = false
 
@@ -240,7 +236,7 @@ func camp(perso *character) {
 				}
 			}
 
-		case "3":
+		case 3:
 			fmt.Println("=============================")
 			fmt.Println("Il est temps de se remmetre en route!'")
 			return

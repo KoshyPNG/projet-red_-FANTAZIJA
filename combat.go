@@ -64,10 +64,7 @@ func Combat(perso *character, monstre *monster) {
 		fmt.Println("===================")
 
 		fmt.Println("TOUR ", tour)
-		Poison(perso)
-		Pois(monstre)
-		Feu(perso)
-		FeuM(monstre)
+		
 
 		fmt.Print((*monstre).Nom, "  :  ")
 		fmt.Print((*monstre).Vie_actuel, "/", (*monstre).Vie_max)
@@ -128,6 +125,10 @@ func Combat(perso *character, monstre *monster) {
 
 			Mfirst(perso, monstre, useP, useM)
 		}
+		Poison(perso)
+		Pois(monstre)
+		Feu(perso)
+		FeuM(monstre)
 		tour += 1
 	}
 	(*perso).Stun = false

@@ -68,36 +68,44 @@ func PP7(perso *character, monstre *monster) {
 func Use_object(a int, perso *character) {
 	a--
 	objet := (*perso).Inventaire[a]
-	switch objet {
-	case "Potion de soin":
-		PotH(perso)
-		remove(a, perso)
-	case "Grande Potion de soin":
-		PotGH(perso)
-		remove(a, perso)
-	case "Potion de poison" :
-		PotP(perso)
-		remove(a, perso)
-	case "Casquette Gucci Fraise" :
-		equip := InitEquip(objet)
-		Equiper(&equip, perso)
-		remove(a, perso)
-	case "Gilet par balles" :
-		equip := InitEquip(objet)
-		Equiper(&equip, perso)
-		remove(a, perso)
-	case "Timberland" :
-		equip := InitEquip(objet)
-		Equiper(&equip, perso)
-		remove(a, perso)
-	case "RedBull" :
-		RedB(perso)
-		remove(a, perso)
-	case "Baril d'essence" :
-		Baril(perso)
-		remove(a, perso)
-	default:
-		fmt.Println("Vous ne pouvez pas utiliser cet objet.")
+	fmt.Println("1 : utilisé objet")
+	fmt.Println("2 : suprimer objet")
+	var b int
+	fmt.Scan(&b)
+	if b == 1 {
+		switch objet {
+		case "Potion de soin":
+			PotH(perso)
+			remove(a, perso)
+		case "Grande Potion de soin":
+			PotGH(perso)
+			remove(a, perso)
+		case "Potion de poison" :
+			PotP(perso)
+			remove(a, perso)
+		case "Casquette Gucci Fraise" :
+			equip := InitEquip(objet)
+			Equiper(&equip, perso)
+			remove(a, perso)
+		case "Gilet par balles" :
+			equip := InitEquip(objet)
+			Equiper(&equip, perso)
+			remove(a, perso)
+		case "Timberland" :
+			equip := InitEquip(objet)
+			Equiper(&equip, perso)
+			remove(a, perso)
+		case "RedBull" :
+			RedB(perso)
+			remove(a, perso)
+		case "Baril d'essence" :
+			Baril(perso)
+			remove(a, perso)
+		default:
+			fmt.Println("Vous ne pouvez pas utiliser cet objet.")
+		}
+	} else {
+		remoov(a,perso)
 	}
 }
 
