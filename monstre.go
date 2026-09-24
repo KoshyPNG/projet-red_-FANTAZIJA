@@ -7,6 +7,8 @@ type monster struct {
 	turn       [](*attack)
 	Attaque    [](*attack)
 	Loot       []string
+	Xp int
+	Or int
 
 	Buffmin  float64
 	BuffAmin float64
@@ -40,6 +42,8 @@ func monsterZombie() monster {
 		Tbuff:      0,
 		BuffV:      1.0,
 		TbuffV:     0,
+		Xp: 10,
+		Or : 10,
 	}
 	for _, nom := range []string{"Coup de griffe", "Morsure"} {
 		attack := InitAttack(nom)
@@ -70,6 +74,8 @@ func monsterClaqueur() monster {
 		Tbuff:      0,
 		BuffV:      1.0,
 		TbuffV:     0,
+		Xp: 20,
+		Or: 15,
 	}
 	for _, nom := range []string{"Charge", "Morsure"} {
 		attack := InitAttack(nom)
@@ -99,6 +105,8 @@ func monsterMaxime() monster {
 		Tbuff:      0,
 		BuffV:      1.0,
 		TbuffV:     0,
+		Xp : 200,
+		Or :  150,
 	}
 	for _, nom := range []string{"Lancer de RedBull", "Morsure de loup", "Traque empoisonné"} {
 		attack := InitAttack(nom)
@@ -144,6 +152,8 @@ func monsterGoliath() monster {
 		BuffA:      0.8,
 		Buff:       0.8,
 		BuffV:      0.8,
+		Or : 100,
+		Xp: 150,
 	}
 
 	cri := InitAttack("Cri de guerre")
@@ -174,5 +184,8 @@ func InitMonster(nom string) monster {
 	m.Stun = false
 	m.Feu = false
 	m.Tfeu = 0
+	m.Tbuff = 0
+	m.TbuffA = 0
+	m.TbuffV = 0
 	return m
 }

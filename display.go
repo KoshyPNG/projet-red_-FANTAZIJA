@@ -24,15 +24,7 @@ func DisplayInfo(perso *character) {
 	fmt.Println("==========================")
 	fmt.Println(perso.Piece,"pièce d'or")
 	fmt.Println("==========================")
-	var b float64
-	var c int
-	a := perso.Level
-	for i := 0; a >= 1; i++ {
-		a--
-		c = i
-	}
-	b = a * 100.0
-	fmt.Println("Niveau", c)
-	fmt.Println(b, "% du niveau")
+	fmt.Println("Niveau", perso.Level)
+	fmt.Println(perso.Xp, "% du niveau")
 	fmt.Println("==========================")
 }

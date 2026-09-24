@@ -27,6 +27,7 @@ func main() {
 
 	for projet_red.IsDead(perso) {
 		fmt.Println("=====================")
+		projet_red.LevelUp(perso)
 		fmt.Println("Que vous voulez faire ?")
 		fmt.Println("1 : AVANCEZ ; 2 : PERSONNAGE ; 3 : INVENTAIRE ; 4 : ENTRAINEMENT ; 5 : QUITTER")
 		var a int

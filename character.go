@@ -10,7 +10,8 @@ type character struct {
 	Essence_actuel int
 	Essence_max    int
 	Res            bool
-	Level          float64
+	Level          int
+	Xp  int
 	Piece          int
 
 	Inventaire     []string
@@ -126,7 +127,6 @@ func InitCharacter() character {
 	fmt.Scan(&i)
 	perso.Nom = corrected(i)
 	creation(p)
-	perso.Level = 1.0
 	for i := 0; i < 3; i++ {
 		perso.Inventaire = append(perso.Inventaire, "Potion de soin")
 	}
@@ -158,5 +158,11 @@ func InitCharacter() character {
 	perso.Tfeu = 0
 
 	p.count = 0
+	perso.Xp = 0
+	perso.Level = 1
+
+	c := InitAttack("Rien")
+	perso.Action = append(perso.Action ,&c )
+	perso.Action = append(perso.Action ,&c )
 	return perso
 }
