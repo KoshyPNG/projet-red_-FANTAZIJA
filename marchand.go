@@ -67,6 +67,7 @@ func openMarchand(perso *character) {
 					if (*perso).Piece >= 50 {
 						(*perso).Piece -= 50
 						(*perso).Inventaire_max += 10
+						(*perso).NbAchatSacoche += 1
 						fmt.Println(" Les choses simples... une magnifique sacoche !")
 					} else {
 						fmt.Println(" Vous n'avez pas assez d'or !")
