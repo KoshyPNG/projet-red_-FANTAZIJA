@@ -69,7 +69,7 @@ func NewAttack(perso *character) {
 		if place == 0 {
 			return
 		}
-
+		(*perso).Action[place-1] = &c
 		fmt.Println("Attaque ajoutée :", c.Nom, "à la position", place)
 		return
 	}
