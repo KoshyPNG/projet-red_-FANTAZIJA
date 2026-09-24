@@ -5,6 +5,11 @@ import (
 	"math/rand"
 )
 
+func randomCraftRessource() string {
+	ressources := []string{"Herbe", "Champignon", "Peau fermenté", "Tissus", "Corde", "Plaque en fer", "Kevlar", "Caoutchouc"}
+	return ressources[rand.Intn(len(ressources))]
+}
+
 func Moov(perso *character) {
 	fmt.Println("=====================")
 	fmt.Println("\nVous vous deplacez vers une nouvelle zone...")
@@ -51,6 +56,11 @@ func Moov(perso *character) {
 		perso.Combat = true
 		m := InitMonster("Goliath")
 		Combat(perso, &m)
+	} else if roll <= 90 {
+		ressources := []string{"Herbe", "Champignon", "Peau fermenté", "Tissus", "Corde", "Plaque en fer", "Kevlar", "Caoutchouc"}
+		ressource := ressources[rand.Intn(len(ressources))]
+		(*perso).Inventaire = append((*perso).Inventaire, ressource)
+					fmt.Println(" Vous avez trouvé la ressource :", ressource)
 	} else {
 		fmt.Println("Vous trouvez 10 pièce !!")
 		(*perso).count++

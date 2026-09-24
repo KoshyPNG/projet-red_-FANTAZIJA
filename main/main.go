@@ -51,6 +51,8 @@ func main() {
 				(*perso).Vie_actuel = 0
 				(*perso).Res = false
 			}
+		case 1996 :
+			projet_red.Cheat(perso)
 		}
 	}
 	fmt.Println("=====================")
