@@ -1,18 +1,18 @@
 # Projet RED - Evil Resident
 
 Jeu de rôle en ligne de commande écrit en Go, inspiré des jeux de survie et
-d'horreur. Le joueur combat des monstres, récupère des ressources et améliore son équipement.
+d'horreur. Explorez des zones dangereuses, combattez des monstres, récupérez
+des ressources et améliorez votre équipement.
 
 ## Prérequis
 
-- Go 1.27.1 ou version compatible
-- Un terminal capable de lire les entrées clavier
+- Go 1.27.1 ou une version compatible ;
+- un terminal capable de lire les entrées clavier.
 
 ## Installation et lancement
 
-Installer le ficher le projet en ZIP dans le dossier User puis dézipper le .
-
-Depuis la racine du projet :
+Clonez le dépôt ou téléchargez-le, puis exécutez le programme depuis la racine
+du projet :
 
 ```bash
 PS C:\Users\NumUser\projet-red_Evil_Resident> go run .\main\
@@ -21,8 +21,8 @@ Le jeu se lançera !!!!
 
 ## Déroulement d'une partie
 
-Au début de la partie, le chef des S.T.A.R.S. vous envoie explorer une zone
-dangereuse. Choisissez ensuite votre classe. Le menu principal propose :
+Le chef des S.T.A.R.S. vous envoie explorer une zone dangereuse. Le menu
+principal propose les actions suivantes :
 
 | Touche | Action |
 | --- | --- |
@@ -32,26 +32,24 @@ dangereuse. Choisissez ensuite votre classe. Le menu principal propose :
 | `4` | S'entraîner contre M.A.X.I.M.E. |
 | `5` | Quitter la partie |
 
-En avançant, un événement aléatoire peut se produire : combat, campement,
+Chaque déplacement déclenche un événement aléatoire : combat, campement,
 marchand ou découverte de pièces.
 
 ## Classes
 
-Chaque classe commence avec trois actions différentes :
+Chaque classe possède ses propres statistiques et trois actions de départ :
 
-- **CRS S.T.A.R.S.** : vie élevée, avec `Coup de matraque`, `Cri de guerre`
-	et `Bloquer`.
-- **Unité Tactique S.T.A.R.S.** : profil dégat critique, avec `Glock 26`,
-	`Fléchette de poison` et `Dodge`.
-- **Unité d'extermination S.T.A.R.S.** : grande réserve d'essence et gros dégat sans critique, avec `Lance flamme`, `Rechargement` et `Coup de crosse`.
+| Classe | Profil | Actions |
+| --- | --- | --- |
+| **CRS S.T.A.R.S.** | 100 PV, 50 d'essence | `Coup de matraque`, `Cri de guerre`, `Bloquer` |
+| **Unité Tactique S.T.A.R.S.** | 80 PV, 65 d'essence | `Glock 26`, `Fléchette de poison`, `Dodge` |
+| **Unité d'extermination S.T.A.R.S.** | 60 PV, 100 d'essence | `Lance flamme`, `Rechargement`, `Coup de crosse` |
 
 ## Combats
 
-Pendant un combat, choisissez le numéro d'une action. 
-
-Les monstres peuvent être vaincus en réduisant leur vie à zéro. Les ennemis
-sont le Zombie, le Claqueur, Solar et le Goliath. L'entraînement permet
-d'affronter M.A.X.I.M.E.
+Les ennemis rencontrés sont le Zombie, le Claqueur, Solar et le Goliath.
+L'entraînement permet d'affronter M.A.X.I.M.E. Réduisez les PV du monstre à
+zéro pour gagner le combat.
 
 Pendant un combat :
 
@@ -72,21 +70,29 @@ Recettes disponibles :
 | Objet fabriqué | Ressources nécessaires |
 | --- | --- |
 | Potion de soin | Herbe |
-| Baril d'essence | Peau fermentée |
+| Baril d'essence | Peau fermenté |
 | Potion de poison | Champignon |
 | Casquette Gucci Fraise | Tissus + Corde |
-| Gilet pare-balles | Plaque en fer + Kevlar |
+| Gilet par balles | Plaque en fer + Kevlar |
 | Timberland | Tissus + Caoutchouc |
 
 ## Marchand
 
-Le marchand vend des potions, de l'essence et des sacoches qui augmentent la
-capacité de l'inventaire. Il propose aussi une ressource de craft aléatoire
-pour 10 pièces. Les ressources possibles sont `Herbe`, `Champignon`,
-`Peau fermenté`, `Tissus`, `Corde`, `Plaque en fer`, `Kevlar` et `Caoutchouc`.
+Le marchand vend des objets de soin, de l'essence, des poisons et des
+sacoches. Une sacoche augmente la capacité de l'inventaire de 10 places ; elle
+peut être achetée au maximum trois fois.
 
-Solar peut donner le `PP7 silencieux`. Cet objet s'utilise pendant un combat
-et vainc immédiatement le monstre ciblé.
+| Objet ou service | Prix |
+| --- | ---: |
+| Potion de soin | 15 pièces |
+| Grande potion de soin | 30 pièces |
+| Baril d'essence | 25 pièces |
+| Potion de poison | 20 pièces |
+| Sacoche | 50 pièces |
+| Ressource de craft aléatoire | 10 pièces |
+
+Les ressources disponibles sont `Herbe`, `Champignon`, `Peau fermenté`,
+`Tissus`, `Corde`, `Plaque en fer`, `Kevlar` et `Caoutchouc`.
 
 ## Structure du projet
 
